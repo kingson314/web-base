@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# build
+.nuxt
+.next
+dist
+build
+.idea
+sw.*
+
+# server
+uploads
