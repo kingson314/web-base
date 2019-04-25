@@ -1,0 +1,25 @@
+{
+  "name": "web-base",
+  "version": "1.0.0",
+  "description": "web development base tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patricknieh/web-base.git"
+  },
+  "keywords": [
+    "react",
+    "web",
+    "scss",
+    "utils"
+  ],
+  "author": "paddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patricknieh/web-base/issues"
+  },
+  "homepage": "https://github.com/patricknieh/web-base#readme"
+}
