@@ -4,6 +4,12 @@ Web development common base tools.
 
 ## Example Usage
 
+```
+npm i web-base
+//or
+yarn add web-base
+```
+
 ####`utils`
 ```
 import {utils} from 'web-base'
@@ -22,9 +28,9 @@ console.log(utils.date.getFormatDate(date,'YYYY-MM-DD hh:mm'))
 
 ```
 
-####`scss`
+####`css`
 ```
-import 'web-base/scss'
+import 'web-base/dist/css/index.css'
 ```
 `Note:` include reset.css, foundation-xy-grid, foundation-visibility, common
 
