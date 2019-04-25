@@ -1,3 +1,3 @@
-export function sayHi() {
-  console.log('say hi','hi')
+module.exports = {
+  name: 'paddy'
 }
