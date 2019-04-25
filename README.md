@@ -231,7 +231,7 @@ import 'web-base/dist/css/index.css'
         - clear
 
 
-#### `common class:`
+#### `common.css class:`
 
 - show `display: none;`
 - hide  `display: none;`
@@ -306,3 +306,7 @@ import 'web-base/dist/css/index.css'
 - vertical
     - -center `display: inline-block;text-align: center;`
     - -inner-center `width: inherit;height: inherit;text-align: center;display: table-cell;vertical-align: middle;`
+
+`Note:` 
+- grid.css see [Foundation XY Grid](https://foundation.zurb.com/sites/docs/xy-grid.html)	
+- visibility.css see [Foundation Visibility Classes](https://foundation.zurb.com/sites/docs/visibility.html)
