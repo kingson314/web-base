@@ -1,3 +1,7 @@
+const utils = require('./utils')
+
 module.exports = {
-  name: 'paddy'
+  utils
 }
+
+
