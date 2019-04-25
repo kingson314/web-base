@@ -248,6 +248,12 @@
     justify-content: flex-end;
     -ms-flex-pack: end;
   }
+  &-col {
+    display: flex;
+    display: -ms-flexbox;
+    flex-flow: column nowrap;
+    -ms-flex-flow: row nowrap;
+  }
   &-col-sa {
     display: flex;
     display: -ms-flexbox;
@@ -283,6 +289,11 @@
     justify-content: flex-end;
     -ms-flex-pack: end;
     height: inherit;
+  }
+  &-center {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
   }
   &-center-sa {
     display: flex;
