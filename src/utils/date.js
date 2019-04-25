@@ -161,9 +161,9 @@ module.exports = {
   getTimeStamp: function () {
     return new Date().getTime();
   },
-  // 转换long值为日期字符串
+  // 通过时间戳获取时间字符串
   getDateStringByTimeStamp: function (timeStamp, pattern) {
-    return this.getFormatDate(new Date(timeStamp), pattern);
+    return this.getDateString(new Date(timeStamp), pattern);
   },
   // 转换日期对象为日期字符串
   getDateString: function (date, pattern) {

@@ -38,10 +38,12 @@ import 'web-base/dist/css/index.css'
 ```
 `Note:` include reset.css, grid.css, visibility.css, common.css
 
+## API
+
 #### `utils:`
 - string
-    - uuid
-    - randomCode 
+    - uuid `生成uuid`
+    - randomCode `生成数字字符随机组合`
     - encrypt `编码`
     - decrypt `解码`
     - checkPwd `检测密码强度`
@@ -54,7 +56,7 @@ import 'web-base/dist/css/index.css'
     - domToString `DOM转字符串`
     - stringToDom `字符串转DOM`
 - number
-    - random
+    - random `随机数`
     - randomGoods `抽奖概率`
     - randomCode `随机验证码`
     - formatSmallChinese `将数字转换成对应的中文小写`
@@ -64,9 +66,9 @@ import 'web-base/dist/css/index.css'
 - array
     - contains `是否包含元素`
     - remove `移除元素`
-    - each
-    - map
-    - sort
+    - each `遍历`
+    - map `遍历输出`
+    - sort `排序`
     - unique `去重`
     - union `并集`
     - intersect `交集`
@@ -78,14 +80,14 @@ import 'web-base/dist/css/index.css'
     - sum `求和`
     - average `平均值`
     - isRepeat `判断数组是否有重复的项`
-    - getItemByRandom
-    - getIndexByItem
-    - getItemByIndex
-    - setItemByIndex
-    - removeByItem
-    - removeByIndex
+    - getItemByRandom `随机获取元素`
+    - getIndexByItem `通过元素获取下标`
+    - getItemByIndex `通过下标获取元素`
+    - setItemByIndex `通过下标设置元素`
+    - removeByItem `移除元素`
+    - removeByIndex `通过下标移除元素`
 - check
-    - isBrowser
+    - isBrowser `检查是什么浏览器`
     - isString
     - isNumber
     - isBoolean
@@ -124,19 +126,19 @@ import 'web-base/dist/css/index.css'
     - isIOS
     - isPC
 - date
-    - countTime
-    - getTimeStamp
-    - getDateStringByTimeStamp
-    - getDateString
-    - getMonths
-    - getDays
-    - getHMS
-    - getMonthOfDay
-    - getYearOfDay
-    - getFirstDayOfYear
-    - getLastDayOfYear
-    - getDayOfYear
-    - getDayOfYearWeek
+    - countTime `计算时间的year,month,day,hour,minute,seconds,week,daytime,when`
+    - getTimeStamp `获取时间戳`
+    - getDateStringByTimeStamp `通过时间戳获取时间字符串`
+    - getDateString `转换日期对象为日期字符串`
+    - getMonths `返回指定长度的月份集合`
+    - getDays `返回指定长度的天数集合`
+    - getHMS `返回时分秒`
+    - getMonthOfDay `获取某月有多少天`
+    - getYearOfDay `获取某年有多少天`
+    - getFirstDayOfYear `获取某年的第一天`
+    - getLastDayOfYear `获取某年最后一天`
+    - getDayOfYear `获取某个日期是当年中的第几天`
+    - getDayOfYearWeek `获取某个日期在这一年的第几周`
     - _transferDate `转换为日期对象`
     - _numYear `间隔年份`
     - _numMonth `间隔月份`
@@ -211,14 +213,14 @@ import 'web-base/dist/css/index.css'
     - isDocumentFile    `doc|docx|xls|xlsx|pdf|txt|ppt|pptx|rar|zip|html|jsp|sql|htm|shtml|xml`
     - isOfficeFile  `doc|docx|xls|xlsx|pdf|txt|ppt|pptx`
 - net
-    - getBreadcrumbs
-    - getParam
-    - getParams
-    - ajax
-    - fetch
+    - getBreadcrumbs `获取path数组`
+    - getParam `获取url参数`
+    - getParams `获取所有url参数`
+    - ajax `http请求`
+    - fetch `fetch请求`
     - cookie
-        - parse
-        - getFrom
+        - parse `转换字符串cookie`
+        - getFrom `从指定cookie对象中获取cookie值`
     - localStorage
         - set
         - get
