@@ -1,10 +1,10 @@
-import XLSX from 'xlsx'
+const XLSX = require('xlsx')
 
 const makeCols = function(refstr) {
   return Array(XLSX.utils.decode_range(refstr).e.c + 1).fill(0).map((x,i) => ({name:XLSX.utils.encode_col(i), key:i}))
 }
 
-let xlsx = {
+module.exports = {
   write: function(data,filename) {
     /* convert state to workbook */
     const ws = XLSX.utils.aoa_to_sheet(data);
@@ -30,7 +30,5 @@ let xlsx = {
       };
       reader.readAsBinaryString(file);
     })
-  }
+  },
 }
-
-export default xlsx
