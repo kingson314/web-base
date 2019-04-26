@@ -1,6 +1,6 @@
 {
   "name": "web-base",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "web development common base tools",
   "main": "index.js",
   "scripts": {
@@ -45,6 +45,8 @@
   },
   "homepage": "https://github.com/patricknieh/web-base#readme",
   "dependencies": {
+    "js-cookie": "^2.2.0",
+    "superagent": "^5.0.3",
     "xlsx": "^0.14.2"
   }
 }

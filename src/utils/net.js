@@ -1,3 +1,6 @@
+const Cookies = require('js-cookie')
+const superagent = require('superagent')
+
 module.exports = {
   getBreadcrumbs: function (route) {
     return route.split('/')
@@ -130,8 +133,9 @@ module.exports = {
         })
     })
   },
+  request: superagent,
   cookie: {
-    parse(cookies) {
+    parse: function(cookies) {
       let cookie = cookies.split(';'), cookieObj = {}, cookieArr = [], key = '', value = '';
       for (let i = 0; i < cookie.length; i++) {
         cookieArr = cookie[i].trim().split('=')
@@ -141,19 +145,31 @@ module.exports = {
       }
       return cookieObj
     },
-    getFrom: function (cookie,name) {
+    getFromString: function (cookieStr,name) {
       var cookieName = encodeURIComponent(name) + "=",
-        cookieStart = cookie.indexOf(cookieName),
+        cookieStart = cookieStr.indexOf(cookieName),
         cookieValue = null
       if(cookieStart > -1){
-        var cookieEnd = cookie.indexOf(";",cookieStart)
+        var cookieEnd = cookieStr.indexOf(";",cookieStart)
         if(cookieEnd == -1){
-          cookieEnd = cookie.length
+          cookieEnd = cookieStr.length
         }
-        cookieValue = decodeURIComponent(cookie.substring(cookieStart + cookieName.length,cookieEnd))
+        cookieValue = decodeURIComponent(cookieStr.substring(cookieStart + cookieName.length,cookieEnd))
       }
       return cookieValue
-    }
+    },
+    getJSON: function(key) {
+      return Cookies.getJSON(key)
+    },
+    get: function(key) {
+      return Cookies.get(key)
+    },
+    set: function(key,val,options) {
+      return Cookies.set(key,val,options)
+    },
+    remove: function(key) {
+      return Cookies.remove(key)
+    },
   },
   localStorage: {
     set: function (key, val) {

@@ -218,9 +218,14 @@ import 'web-base/dist/css/index.css'
     - getParams `获取所有url参数`
     - ajax `http请求`
     - fetch `fetch请求`
+    - request `dependency superagent`
     - cookie
         - parse `转换字符串cookie`
-        - getFrom `从指定cookie对象中获取cookie值`
+        - getFromString `从headrs中获取cookie值`
+        - getJSON `dependency js-cookie`
+        - get 
+        - set 
+        - remove 
     - localStorage
         - set
         - get
@@ -314,3 +319,5 @@ import 'web-base/dist/css/index.css'
 `Note:` 
 - grid.css see [Foundation XY Grid](https://foundation.zurb.com/sites/docs/xy-grid.html)	
 - visibility.css see [Foundation Visibility Classes](https://foundation.zurb.com/sites/docs/visibility.html)
+- utils.net.request see [superagent](http://visionmedia.github.io/superagent)
+- utils.net.cookie see [js-cookie](https://www.npmjs.com/package/js-cookie)
