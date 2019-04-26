@@ -41,10 +41,9 @@
     "react",
     "egg",
     "seneca",
-    "web",
     "sass",
     "scss",
-    "utils"
+    "utility"
   ],
   "author": "paddyzzz<patricknieh@hotmail.com>",
   "license": "MIT",

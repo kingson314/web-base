@@ -3,6 +3,45 @@
  */
 module.exports = {
   /**
+   * 格式化日期
+   *
+   * @param {date|string} date - 日期
+   * @param {string} pattern - YYYY-MM-DD hh:mm:ss
+   * @returns {string} 返回格式后的日期
+   */
+  format: function (date, pattern) {
+    // 不传入date默认为当前时间
+    if (date == undefined) {
+      date = new Date();
+    }else {
+      date = this._transferDate(date);
+    }
+    // 不传入格式默认为全格式
+    if (pattern == undefined) {
+      pattern = "YYYY-MM-DD hh:mm:ss";
+    }
+
+    let o = {
+      "M+": date.getMonth() + 1,
+      "D+": date.getDate(),
+      "h+": date.getHours(),
+      "m+": date.getMinutes(),
+      "s+": date.getSeconds(),
+      "q+": Math.floor((date.getMonth() + 3) / 3),
+      "S": date.getMilliseconds()
+    };
+    if (/(Y+)/.test(pattern)) {
+      pattern = pattern.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+
+    for (let k in o) {
+      if (new RegExp("(" + k + ")").test(pattern)) {
+        pattern = pattern.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+      }
+    }
+    return pattern;
+  },
+  /**
    * 计算时间
    *
    * @param {date} date - 日期对象
@@ -169,45 +208,6 @@ module.exports = {
     return new Date().getTime();
   },
   /**
-   * 格式化日期
-   *
-   * @param {date|string} date - 日期
-   * @param {string} pattern - YYYY-MM-DD hh:mm:ss
-   * @returns {string} 返回格式后的日期
-   */
-  getFormatDate: function (date, pattern) {
-    // 不传入date默认为当前时间
-    if (date == undefined) {
-      date = new Date();
-    }else {
-      date = this._transferDate(date);
-    }
-    // 不传入格式默认为全格式
-    if (pattern == undefined) {
-      pattern = "YYYY-MM-DD hh:mm:ss";
-    }
-
-    let o = {
-      "M+": date.getMonth() + 1,
-      "D+": date.getDate(),
-      "h+": date.getHours(),
-      "m+": date.getMinutes(),
-      "s+": date.getSeconds(),
-      "q+": Math.floor((date.getMonth() + 3) / 3),
-      "S": date.getMilliseconds()
-    };
-    if (/(Y+)/.test(pattern)) {
-      pattern = pattern.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-    }
-
-    for (let k in o) {
-      if (new RegExp("(" + k + ")").test(pattern)) {
-        pattern = pattern.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
-      }
-    }
-    return pattern;
-  },
-  /**
    * 通过时间戳获取日期
    *
    * @param {number} timeStamp - 时间戳
@@ -215,7 +215,7 @@ module.exports = {
    * @returns {string} 返回日期
    */
   getFormatDateByTimeStamp: function (timeStamp, pattern) {
-    return this.getFormatDate(new Date(timeStamp), pattern);
+    return this.format(new Date(timeStamp), pattern);
   },
   /**
    * 返回指定长度的月份集合
