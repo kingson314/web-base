@@ -38,7 +38,7 @@ import 'web-base/dist/css/index.css'
 
 ## API
 
-For Documentation, visit [web-base-document]()
+For Documentation, visit [document]()
 
 #### `utils:`
 - string
