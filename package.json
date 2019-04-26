@@ -1,6 +1,6 @@
 {
   "name": "web-base",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "web development common base tools",
   "main": "index.js",
   "scripts": {
