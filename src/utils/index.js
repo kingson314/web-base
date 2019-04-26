@@ -8,6 +8,7 @@ const utils = {
   number: require('./number'),
   string: require('./string'),
   time: require('./time'),
+  xlsx: require('./xlsx'),
 }
 
 module.exports = utils

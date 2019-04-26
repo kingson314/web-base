@@ -1,6 +1,6 @@
 {
   "name": "web-base",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "web development common base tools",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "cssnext": "^1.8.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.0",
@@ -25,7 +26,6 @@
     "gulp-uglify": "^3.0.0",
     "http-proxy-middleware": "^0.17.4",
     "node-sass": "^4.5.3",
-    "cssnext": "^1.8.4",
     "precss": "^2.0.0"
   },
   "repository": {
@@ -38,10 +38,13 @@
     "scss",
     "utils"
   ],
-  "author": "paddyzzz<patricknieh@qq.com>",
+  "author": "paddyzzz<patricknieh@hotmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/patricknieh/web-base/issues"
   },
-  "homepage": "https://github.com/patricknieh/web-base#readme"
+  "homepage": "https://github.com/patricknieh/web-base#readme",
+  "dependencies": {
+    "xlsx": "^0.14.2"
+  }
 }

@@ -231,7 +231,9 @@ import 'web-base/dist/css/index.css'
         - get
         - remove
         - clear
-
+- xlsx
+    - read
+    - write
 
 #### `common.css class:`
 
