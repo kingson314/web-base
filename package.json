@@ -33,8 +33,14 @@
     "url": "git+https://github.com/patricknieh/web-base.git"
   },
   "keywords": [
+    "nuxt",
+    "next",
+    "vue",
     "react",
+    "egg",
+    "seneca",
     "web",
+    "sass",
     "scss",
     "utils"
   ],
