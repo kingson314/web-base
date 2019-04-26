@@ -5,8 +5,6 @@
 ## Example Usage
 
 ```
-npm i web-base
-//or
 yarn add web-base
 ```
 
@@ -73,7 +71,6 @@ For Documentation, visit [web-base-document]()
     - intersect `交集`
     - complement `补集`
     - minus `差集`
-    - formArray `将类数组转换为数组的方法`
     - max `最大值`
     - min `最小值`
     - sum `求和`
