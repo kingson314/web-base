@@ -87,7 +87,8 @@ For Documentation, visit [web-base-document]()
     - removeByIndex `通过下标移除元素`
 - check
     - isBrowser `检查是什么浏览器`
-    - isMobile `检查手机操作系统`
+    - isMobile `返回手机操作系统`
+    - isPC `检查是否为PC`
     - isString
     - isNumber
     - isBoolean

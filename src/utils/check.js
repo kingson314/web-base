@@ -30,10 +30,26 @@ module.exports = {
     if (isChrome) return {name: 'Chrome', version: 0};
   },
   /**
-   * 判断手机类型
+   * 判断手机
    * @return {string} 返回手机操作系统
    */
   isMobile: function () {
+    let userAgentInfo = navigator.userAgent;
+    let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    let flag = true;
+    for (let v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  },
+  /**
+   * 判断PC
+   * @return {boolean|string} 如果是返回true 不是返回手机系统
+   */
+  isPC: function () {
     let userAgentInfo = navigator.userAgent;
     let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
     let flag = true;
