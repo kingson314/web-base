@@ -161,15 +161,14 @@ module.exports = {
   getTimeStamp: function () {
     return new Date().getTime();
   },
-  // 通过时间戳获取时间字符串
-  getDateStringByTimeStamp: function (timeStamp, pattern) {
-    return this.getDateString(new Date(timeStamp), pattern);
-  },
   // 转换日期对象为日期字符串
-  getDateString: function (date, pattern) {
+  getFormatDate: function (date, pattern) {
     // 不传入date默认为当前时间
     if (date == undefined) {
       date = new Date();
+    }
+    if(typeof date === 'string') {
+      date = new Date(date)
     }
     // 不传入格式默认为全格式
     if (pattern == undefined) {
@@ -195,6 +194,10 @@ module.exports = {
       }
     }
     return pattern;
+  },
+  // 通过时间戳获取时间字符串
+  getFormatDateByTimeStamp: function (timeStamp, pattern) {
+    return this.getFormatDate(new Date(timeStamp), pattern);
   },
   /**
    * 返回指定长度的月份集合

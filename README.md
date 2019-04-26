@@ -126,10 +126,10 @@ import 'web-base/dist/css/index.css'
     - isIOS
     - isPC
 - date
-    - countTime `计算时间的year,month,day,hour,minute,seconds,week,daytime,when`
+    - countTime `计算时间的year,month,day,hour,minute,seconds,week,daytime,when 如：早晨，25秒以前等等`
     - getTimeStamp `获取时间戳`
-    - getDateStringByTimeStamp `通过时间戳获取时间字符串`
-    - getDateString `转换日期对象为日期字符串`
+    - getFormatDate `日期格式化 如：YYYY-MM-DD hh:mm:ss`
+    - getFormatDateByTimeStamp `通过时间戳获取格式化日期`
     - getMonths `返回指定长度的月份集合`
     - getDays `返回指定长度的天数集合`
     - getHMS `返回时分秒`
