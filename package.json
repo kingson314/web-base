@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "rm -rf dist && gulp build && rm -rf dist/include",
+    "doc": "jsdoc src/utils/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

@@ -1,10 +1,13 @@
+/**
+ * @module utils/array
+ */
 module.exports = {
   /**
    * 移除元素
    *
-   * @param {array} arr
-   * @param {*} ele - 移除元素 可以是number string
-   * @returns {array}
+   * @param {array} arr - 数组
+   * @param {*} ele - 要移除元素
+   * @returns {array} 返回移除后的数组
    */
   remove: function (arr, ele) {
     let index = arr.indexOf(ele);
@@ -16,9 +19,9 @@ module.exports = {
   /**
    * 排序
    *
-   * @param {array} arr
-   * @param {number} type - 默认：1.正序 2.倒序 3.乱序
-   * @returns {array}
+   * @param {array} arr - 数组
+   * @param {number} type - 默认：1 <1.正序 2.倒序 3.乱序>
+   * @returns {array} 返回排序后的数组
    */
   sort: function (arr, type = 1) {
     return arr.sort((a, b) => {
@@ -37,8 +40,8 @@ module.exports = {
   /**
    * 去重
    *
-   * @param {array} arr
-   * @returns {array}
+   * @param {array} arr - 数组
+   * @returns {array} 返回去重后的数组
    */
   unique: function (arr) {
     if (Array.hasOwnProperty('from')) {
@@ -57,9 +60,9 @@ module.exports = {
   /**
    * 并集
    *
-   * @param {array} arr1
-   * @param {array} arr2
-   * @returns {array}
+   * @param {array} arr1 - 数组
+   * @param {array} arr2 - 数组
+   * @returns {array} 返回两个数组的并集数组
    */
   union: function (arr1, arr2) {
     let newArr = arr1.concat(arr2);
@@ -68,9 +71,9 @@ module.exports = {
   /**
    * 交集
    *
-   * @param {array} arr1
-   * @param {array} arr2
-   * @returns {array}
+   * @param {array} arr1 - 数组
+   * @param {array} arr2 - 数组
+   * @returns {array} 返回两个数组的交集数组
    */
   intersect: function (arr1, arr2) {
     let _this = this;
@@ -82,9 +85,9 @@ module.exports = {
   /**
    * 补集
    *
-   * @param {array} arr1
-   * @param {array} arr2
-   * @returns {array}
+   * @param {array} arr1 - 数组
+   * @param {array} arr2 - 数组
+   * @returns {array} 返回两个数组的补集数组
    */
   complement: function (arr1, arr2) {
     return this.minus(this.union(arr1, arr2), this.intersect(arr1, arr2));
@@ -92,9 +95,9 @@ module.exports = {
   /**
    * 差集
    *
-   * @param {array} arr1
-   * @param {array} arr2
-   * @returns {array}
+   * @param {array} arr1 - 数组
+   * @param {array} arr2 - 数组
+   * @returns {array} 返回两个数组的差集数组
    */
   minus: function (arr1, arr2) {
     arr1 = this.unique(arr1);
@@ -103,26 +106,10 @@ module.exports = {
     });
   },
   /**
-   * 将类数组转换为数组
-   *
-   * @param {*} ary
-   * @returns {*|Array}
-   */
-  formArray: function (ary) {
-    let arr = [];
-    if (Array.isArray(ary)) {
-      arr = ary;
-    } else {
-      arr = Array.prototype.slice.call(ary);
-    }
-
-    return arr;
-  },
-  /**
    * 最大值
    *
-   * @param {array} arr
-   * @returns {number}
+   * @param {array} arr - 数组
+   * @returns {number} 返回数组中最大的元素
    */
   max: function (arr) {
     return Math.max.apply(null, arr);
@@ -130,8 +117,8 @@ module.exports = {
   /**
    * 最小值
    *
-   * @param {array} arr
-   * @returns {number}
+   * @param {array} arr - 数组
+   * @returns {number} 返回数组中最小的元素
    */
   min: function (arr) {
     return Math.min.apply(null, arr);
@@ -139,8 +126,8 @@ module.exports = {
   /**
    * 求和
    *
-   * @param {array} arr
-   * @returns {number}
+   * @param {array} arr - 数组
+   * @returns {number} 返回数组元素加起来的总和
    */
   sum: function (arr) {
     return arr.reduce((pre, cur) => {
@@ -150,8 +137,8 @@ module.exports = {
   /**
    * 平均值
    *
-   * @param {array} arr
-   * @returns {number}
+   * @param {array} arr - 数组
+   * @returns {number} 返回数组中所有元素的平均数
    */
   average: function (arr) {
     return this.sum(arr) / arr.length
@@ -159,8 +146,8 @@ module.exports = {
   /**
    * 判断数组是否有重复的项
    *
-   * @param {array} arr
-   * @returns {boolean}
+   * @param {array} arr - 数组
+   * @returns {boolean} 判断数组中是否有存在重复项
    */
   isRepeat: function (arr) {
     let hash = {};
@@ -173,8 +160,8 @@ module.exports = {
   /**
    * 随机返回数组中一个元素
    *
-   * @param {array} arr
-   * @returns {*}
+   * @param {array} arr - 数组
+   * @returns {*} 随机返回一个元素
    */
   getItemByRandom: function (arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -182,9 +169,9 @@ module.exports = {
   /**
    * 通过元素获取下标
    *
-   * @param {array} arr
-   * @param {*} item
-   * @returns {number}
+   * @param {array} arr - 数组
+   * @param {*} item - 元素
+   * @returns {number} 返回指定元素的下标
    */
   getIndexByItem: function (arr, item) {
     for (let i = 0; i < arr.length; i++) {
@@ -197,9 +184,9 @@ module.exports = {
   /**
    * 通过下标获取元素
    *
-   * @param {array} arr
-   * @param {number} index
-   * @returns {*}
+   * @param {array} arr - 数组
+   * @param {number} index - 下标
+   * @returns {*} 返回指定下标的元素
    */
   getItemByIndex: function (arr, index) {
     return arr[index]
@@ -207,10 +194,10 @@ module.exports = {
   /**
    * 通过下标设置元素
    *
-   * @param {array} arr
-   * @param {number} index
-   * @param {*} item
-   * @returns {array}
+   * @param {array} arr - 数组
+   * @param {number} index - 下标
+   * @param {*} item - 替换元素
+   * @returns {array} 返回更新后的数组
    */
   setItemByIndex: function (arr, index, item) {
     arr[index] = item
@@ -219,9 +206,9 @@ module.exports = {
   /**
    * 删除指定元素
    *
-   * @param {array} arr
-   * @param {*} item
-   * @returns {*|Array}
+   * @param {array} arr - 数组
+   * @param {*} item - 元素
+   * @returns {array} 返回删除后的数组
    */
   removeByItem: function (arr, item) {
     let uniqueArr = this.unique(arr)
@@ -234,9 +221,9 @@ module.exports = {
   /**
    * 通过下标删除元素
    *
-   * @param {array} arr
-   * @param {number} index
-   * @returns {array}
+   * @param {array} arr - 数组
+   * @param {number} index - 下标
+   * @returns {array} 返回删除后的数组
    */
   removeByIndex: function (arr, index) {
     arr.splice(index, 1)

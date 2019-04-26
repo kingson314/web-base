@@ -1,3 +1,7 @@
+/**
+ * @author paddy (patricknieh@hotmail.com)
+ * @namespace utils
+ */
 const utils = {
   array: require('./array'),
   check: require('./check'),

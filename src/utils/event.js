@@ -1,3 +1,6 @@
+/**
+ * @module utils/event
+ */
 module.exports = {
   /**
    * 空闲控制
@@ -36,9 +39,10 @@ module.exports = {
   /**
    * 检测两个物体是否相撞
    *
-   * @param {dom} target1
-   * @param {dom} target2
+   * @param {dom} target1 - 目标
+   * @param {dom} target2 - 目标
    * @param {function} callback
+   * @return {function} 尾调函数
    */
   hit:function (target1, target2, callback){
     /*检测碰撞元素上下左右的位置*/
@@ -53,5 +57,4 @@ module.exports = {
       target2Right = target2.offsetLeft + target2.offsetWidth;
     if (target1Foot > target2Top && target1Right > target2Left && target1Top < target2Foot && target1Left < target2Right) callback()
   },
-
 }

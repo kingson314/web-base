@@ -1,16 +1,37 @@
+/**
+ * @module utils/net
+ */
 const Cookies = require('js-cookie')
 const superagent = require('superagent')
 
 module.exports = {
+  /**
+   * 获取面包屑
+   *
+   * @param {string} route - 路径
+   * @return {array} 返回path数组
+   */
   getBreadcrumbs: function (route) {
     return route.split('/')
   },
+  /**
+   * 获取地址参数
+   *
+   * @param {string} name - key
+   * @return {*} 返回值或null
+   */
   getParam: function (name) {
     let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     let r = decodeURI(window.location.search).substr(1).match(reg);
     if (r != null) return r[2];
     return null;
   },
+  /**
+   * 获取地址所有参数
+   *
+   * @param {string} href - 地址
+   * @return {object} 返回所有参数对象
+   */
   getParams: function (href) {
     let url = href ? href : window.location.href;
     let _pa = url.substring(url.indexOf('?') + 1),
@@ -27,6 +48,12 @@ module.exports = {
     }
     return _rs;
   },
+  /**
+   * ajax请求
+   *
+   * @param {object} setting - 选项设置
+   * @return {*}
+   */
   ajax: function (setting) {
     //设置参数的初始值
     let opts = {
@@ -64,14 +91,14 @@ module.exports = {
     }
 
     /*
-          ** 每当readyState改变时，就会触发onreadystatechange事件
-          ** readyState属性存储有XMLHttpRequest的状态信息
-          ** 0 ：请求未初始化
-          ** 1 ：服务器连接已建立
-          ** 2 ：请求已接受
-          ** 3 : 请求处理中
-          ** 4 ：请求已完成，且相应就绪
-          */
+    ** 每当readyState改变时，就会触发onreadystatechange事件
+    ** readyState属性存储有XMLHttpRequest的状态信息
+    ** 0 ：请求未初始化
+    ** 1 ：服务器连接已建立
+    ** 2 ：请求已接受
+    ** 3 : 请求处理中
+    ** 4 ：请求已完成，且相应就绪
+    */
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 304)) {
         switch (opts.dataType) {
@@ -93,6 +120,12 @@ module.exports = {
       opts.error(err);
     }
   },
+  /**
+   * fetch请求
+   * @param url
+   * @param setting
+   * @return {Promise<any>}
+   */
   fetch: function (url, setting) {
     //设置参数的初始值
     let opts = {
@@ -133,8 +166,20 @@ module.exports = {
         })
     })
   },
+  /**
+   * request请求
+   * [superagent]{@link http://visionmedia.github.io/superagent}
+   */
   request: superagent,
+  /**
+   * @mixin
+   */
   cookie: {
+    /**
+     * 格式化cookie
+     * @param {string} cookies - cookie字符串
+     * @return {*} 返回cookie值
+     */
     parse: function(cookies) {
       let cookie = cookies.split(';'), cookieObj = {}, cookieArr = [], key = '', value = '';
       for (let i = 0; i < cookie.length; i++) {
@@ -145,6 +190,12 @@ module.exports = {
       }
       return cookieObj
     },
+    /**
+     * 从字符串中取cookie
+     * @param {string} cookieStr - cookie字符串
+     * @param {string} name - key
+     * @return {*} 返回cookie值
+     */
     getFromString: function (cookieStr,name) {
       var cookieName = encodeURIComponent(name) + "=",
         cookieStart = cookieStr.indexOf(cookieName),
@@ -158,20 +209,49 @@ module.exports = {
       }
       return cookieValue
     },
+    /**
+     * @param key
+     * @return {*}
+     */
     getJSON: function(key) {
       return Cookies.getJSON(key)
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     get: function(key) {
       return Cookies.get(key)
     },
+    /**
+     *
+     * @param key
+     * @param val
+     * @param options
+     * @return {*}
+     */
     set: function(key,val,options) {
       return Cookies.set(key,val,options)
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     remove: function(key) {
       return Cookies.remove(key)
     },
   },
+  /**
+   * @mixin
+   */
   localStorage: {
+    /**
+     *
+     * @param key
+     * @param val
+     */
     set: function (key, val) {
       let setting = arguments[0];
       if (Object.prototype.toString.call(setting).slice(8, -1) === 'Object') {
@@ -182,18 +262,39 @@ module.exports = {
         localStorage.setItem(key, JSON.stringify(val))
       }
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     get: function (key) {
       if (key) return JSON.parse(localStorage.getItem(key))
       return null;
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     remove: function (key) {
       localStorage.removeItem(key)
     },
+    /**
+     * @return {*}
+     */
     clear: function () {
       localStorage.clear()
     },
   },
+  /**
+   * @mixin
+   */
   sessionStorage: {
+    /**
+     *
+     * @param key
+     * @param val
+     */
     set: function (key, val) {
       let setting = arguments[0];
       if (Object.prototype.toString.call(setting).slice(8, -1) === 'Object') {
@@ -204,13 +305,27 @@ module.exports = {
         sessionStorage.setItem(key, JSON.stringify(val))
       }
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     get: function (key) {
       if (key) return JSON.parse(sessionStorage.getItem(key))
       return null;
     },
+    /**
+     *
+     * @param key
+     * @return {*}
+     */
     remove: function (key) {
       sessionStorage.removeItem(key)
     },
+    /**
+     *
+     * @return {*}
+     */
     clear: function () {
       sessionStorage.clear()
     }

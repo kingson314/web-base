@@ -1,0 +1,8 @@
+nginx:
+    container_name: web-base-jsdoc
+    image: nginx
+    ports:
+      - 1008:80
+    volumes:
+      - $PWD/out:/usr/share/nginx/html
+    restart: always

@@ -1,5 +1,14 @@
+/**
+ * @module utils/number
+ */
 module.exports = {
-  // 随机数范围
+  /**
+   * 随机数范围
+   *
+   * @param {number} min - 最小值
+   * @param {number} max - 最大值
+   * @return {number} 返回随机数
+   */
   random: function (min, max) {
     if (arguments.length === 2) {
       return Math.floor(min + Math.random() * ((max + 1) - min))
@@ -9,9 +18,10 @@ module.exports = {
   },
   /**
    * 抽奖概率
-   * @param goods 奖品池，如：['一等奖'，'二等奖']
-   * @param odds 概率数组，如：[0.1.0.9]
-   * @returns {*}
+   *
+   * @param {array} goods - 奖品池，如：['一等奖'，'二等奖']
+   * @param {array} odds - 概率数组，如：[0.1.0.9]
+   * @returns {*} 返回随机元素
    */
   randomGoods: function(goods,odds){
     let sum = 0,
@@ -28,7 +38,12 @@ module.exports = {
     };
     return null;
   },
-  //随机验证码
+  /**
+   * 随机验证码
+   *
+   * @param {number} len - 长度
+   * @return {number} 返回验证码
+   */
   randomCode:function (len) {
     var code = ''
     const random = [0,1,2,3,4,5,6,7,8,9]
@@ -38,7 +53,12 @@ module.exports = {
     }
     return code
   },
-  // 将数字转换成对应的中文小写
+  /**
+   * 将数字转换成对应的中文小写
+   *
+   * @param num {number} 数字
+   * @return {string} 返回中文小写
+   */
   formatSmallChinese: function (num) {
     let AA = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十");
     let BB = new Array("", "十", "百", "仟", "萬", "億", "点", "");
@@ -80,7 +100,12 @@ module.exports = {
       re = re.replace("一", "");
     return re;
   },
-  // 数字金钱表示
+  /**
+   * 数字金钱表示
+   *
+   * @param num {number} 数字
+   * @return {string} 返回金钱表示
+   */
   formatMoney: function (num) {
     let str = num.toString()
     let newStr = "";
@@ -110,7 +135,12 @@ module.exports = {
       return str
     }
   },
-  // 中文大写金钱表示
+  /**
+   * 中文大写金钱表示
+   *
+   * @param money {number|string}
+   * @return {string} 返回中文大写金钱表示
+   */
   formatBigMoney: function (money) {
     //汉字的数字
     var cnNums = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖');
@@ -196,7 +226,12 @@ module.exports = {
     }
     return chineseStr;
   },
-  //数字单位
+  /**
+   * 数字单位
+   *
+   * @param num {number}
+   * @return {string} 返回数字单位
+   */
   numberUnit: function (num) {
     switch (true) {
       case num > 999999999:

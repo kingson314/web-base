@@ -1,3 +1,6 @@
+/**
+ * @module utils/xlsx
+ */
 const XLSX = require('xlsx')
 
 const makeCols = function(refstr) {
@@ -5,6 +8,11 @@ const makeCols = function(refstr) {
 }
 
 module.exports = {
+  /**
+   * 导出
+   * @param data {object} 导出数据
+   * @param filename {string} 导出文件名
+   */
   write: function(data,filename) {
     /* convert state to workbook */
     const ws = XLSX.utils.aoa_to_sheet(data);
@@ -13,6 +21,11 @@ module.exports = {
     /* generate file and send to client */
     XLSX.writeFile(wb, filename);
   },
+  /**
+   * 读取数据
+   * @param file {file}
+   * @return {Promise<any>}
+   */
   read: function(file) {
     return new Promise(function (resolve, reject) {
       const reader = new FileReader();

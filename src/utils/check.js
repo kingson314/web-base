@@ -1,4 +1,10 @@
+/**
+ * @module utils/check
+ */
 module.exports = {
+  /**
+   * @returns {string} 返回浏览器厂商
+   */
   isBrowser: function(){
     let userAgent = navigator.userAgent,
       isOpera = userAgent.indexOf("Opera") > -1,
@@ -23,115 +29,271 @@ module.exports = {
     if (isSafari) return {name: 'Safari', version: 0};
     if (isChrome) return {name: 'Chrome', version: 0};
   },
+  /**
+   * 判断手机类型
+   * @return {string} 返回手机操作系统
+   */
+  isMobile: function () {
+    let userAgentInfo = navigator.userAgent;
+    let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+    let flag = true;
+    for (let v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isString: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'String'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isNumber: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Number'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isBoolean: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Boolean'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isFunction: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Function'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isNull: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Null'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isUndefined: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Undefined'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isObj: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Object'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isArray: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Array'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isDate: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Date'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isError: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Error'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isSymbol: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Symbol'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isPromise: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Promise'
   },
+  /**
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isSet: function (o) {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Set'
   },
+  /**
+   * 判断空对象和空数组
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
   isEmpty: function (o) {
     if(JSON.stringify(o) === "{}" || JSON.stringify(o) === "[]") return true
     return false
   },
-  isFalse: function (o) {
+  /**
+   * 判断是否是假值
+   * @param {*} o - 对象
+   * @return {boolean}
+   */
+  isFalsy: function (o) {
     if (!o || o === 'null' || o === 'undefined' || o === 'false' || o === 'NaN') return true;
     return false
   },
-  isInt: function(str){
-    return /^-?\d+$/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isInt: function(num){
+    return /^-?\d+$/.test(num);
   },
-  isPhone: function(str){
-    return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isPhone: function(num){
+    return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(num);
   },
-  isTel: function(str){
-    return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isTel: function(num){
+    return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(num);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isUsername: function(str){
     return /^[a-zA-Z]\w{1,17}$/.test(str);//用户名以字母开头，长度在1~18之间，只能包含字母、数字和下划线
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isPassword: function(str){
     return /^[a-zA-Z]\w{5,17}$/.test(str);//密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线
   },
-  isPostal: function(str){
-    return /[1-9]\d{5}(?!\d)/.test(str);//邮政编码
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isPostal: function(num){
+    return /[1-9]\d{5}(?!\d)/.test(num);//邮政编码
   },
-  isQQ: function(str){
-    return /^[1-9][0-9]{4,9}$/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isQQ: function(num){
+    return /^[1-9][0-9]{4,9}$/.test(num);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isEmail: function(str){
     return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str);
   },
-  isMoney: function(str){
-    return /^\d*(?:\.\d{0,2})?$/.test(str);//金额(小数点2位)
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isMoney: function(num){
+    return /^\d*(?:\.\d{0,2})?$/.test(num);//金额(小数点2位)
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isURL: function(str){
     return /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isIP: function(str){
     return /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isEnglish: function(str){
     return /^[a-zA-Z]+$/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isChinese: function(str){
     return /^[\u4E00-\u9FA5]+$/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isLower: function(str){
     return /^[a-z]+$/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isUpper: function(str){
     return /^[A-Z]+$/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isHTML: function(str){
     return /<("[^"]*"|'[^']*'|[^'">])*>/.test(str);
   },
+  /**
+   * @param {string} str - 字符串
+   * @return {boolean}
+   */
   isSpace: function(str){
     return /\s/.test(str);
   },
-  isIdCard: function(str){
-    return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isIdCard: function(num){
+    return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(num);
   },
-  isBankCard: function(str){
-    return /^\d{16}|\d{19}$/.test(str);
+  /**
+   * @param {number} num - 数字
+   * @return {boolean}
+   */
+  isBankCard: function(num){
+    return /^\d{16}|\d{19}$/.test(num);
   },
-  isChineseCardID: function (sId) {
-    if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(sId)) {
-      alert('你输入的身份证长度或格式错误');
-      return false
-    }
+  /**
+   * 判断是否为中国身份证
+   * @param {string} str - 字符串
+   * @return {string|boolean} 返回错误信息或true
+   */
+  isChineseCardID: function (str) {
+    if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(str)) return '身份证的长度或格式错误'
     //身份证城市
     let aCity = {
       11: "北京",
@@ -170,18 +332,12 @@ module.exports = {
       82: "澳门",
       91: "国外"
     };
-    if (!aCity[parseInt(sId.substr(0, 2))]) {
-      alert('你的身份证地区非法')
-      return false
-    }
+    if (!aCity[parseInt(sId.substr(0, 2))]) return '身份证地区非法'
 
     // 出生日期验证
     let sBirthday = (sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2))).replace(/-/g, "/"),
       d = new Date(sBirthday)
-    if (sBirthday != (d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate())) {
-      alert('身份证上的出生日期非法')
-      return false
-    }
+    if (sBirthday != (d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate())) return '身份证上的出生日期非法'
 
     // 身份证号码校验
     let sum = 0,
@@ -191,41 +347,9 @@ module.exports = {
       sum += sId[i] * weights[i];
     }
     let last = codes[sum % 11]; //计算出来的最后一位身份证号码
-    if (sId[sId.length - 1] != last) {
-      alert('你输入的身份证号非法')
-      return false
-    }
+    if (sId[sId.length - 1] != last) return '身份证号非法'
+
     return true
-  },
-  isIOS: function () {
-    let u = navigator.userAgent;
-    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
-      // return "Android";
-      return false
-    } else if (u.indexOf('iPhone') > -1) {//苹果手机
-      // return "iPhone";
-      return true
-    } else if (u.indexOf('iPad') > -1) {//iPad
-      // return "iPad";
-      return false
-    } else if (u.indexOf('Windows Phone') > -1) {//winphone手机
-      // return "Windows Phone";
-      return false
-    } else {
-      return false
-    }
-  },
-  isPC: function () {
-    let userAgentInfo = navigator.userAgent;
-    let Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-    let flag = true;
-    for (let v = 0; v < Agents.length; v++) {
-      if (userAgentInfo.indexOf(Agents[v]) > 0) {
-        flag = false;
-        break;
-      }
-    }
-    return flag;
   },
 
 }

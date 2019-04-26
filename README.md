@@ -1,6 +1,8 @@
 # `web-base`
+@author paddy
+@description Web development common base tools.
 
-Web development common base tools.
+> Web development common base tools.
 
 ## Example Usage
 

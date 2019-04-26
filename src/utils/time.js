@@ -1,7 +1,15 @@
+/**
+ * @module utils/time
+ */
 module.exports = {
-  //获取毫秒数
-  getMillisecond: function (num, type) {
-    switch (type) {
+  /**
+   * 获取毫秒数
+   * @param num {number}
+   * @param unit {string} day hour minute second
+   * @return {number}
+   */
+  getMillisecond: function (num, unit) {
+    switch (unit) {
       case 'day':
         return num * 24 * 60 * 60 * 1000
         break
@@ -16,9 +24,14 @@ module.exports = {
         break
     }
   },
-  //转换毫秒数
-  formatMillisecond: function (num, to) {
-    switch (to) {
+  /**
+   * 转换毫秒数
+   * @param num {number}
+   * @param unit {string} day hour minute second
+   * @return {number}
+   */
+  formatMillisecond: function (num, unit) {
+    switch (unit) {
       case 'day':
         return num / 24 / 60 / 60 / 1000
         break
@@ -33,8 +46,13 @@ module.exports = {
         break
     }
   },
-  //随机间歇执行
   nextTime: 0,
+  /**
+   * 随机间歇执行
+   * @param callback {function}
+   * @param speed  {number} 速度
+   * @return {function}
+   */
   frequency: function (callback,speed) {
     return setInterval(() => {
       let now = new Date().getTime();
@@ -44,7 +62,11 @@ module.exports = {
       }
     }, 300)
   },
-  //倒计时
+  /**
+   * 倒计时
+   * @param seconds {number} 倒计时秒数
+   * @param callback {function}
+   */
   countDown(seconds,callback) {
     let timer = null;
     timer = setInterval(function () {
