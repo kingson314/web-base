@@ -20,7 +20,7 @@ let date = new Date()
 
 console.log(utils.array.remove(arr,'somebody'))
 console.log(utils.check.isNumber(num))
-console.log(utils.date.getDateString(date,'YYYY-MM-DD hh:mm'))
+console.log(utils.date.getFormatDate(date,'YYYY-MM-DD hh:mm'))
 
 // [ 'paddy', 'patrick' ]
 // false
