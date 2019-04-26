@@ -1,9 +1,11 @@
 module.exports = {
-  // 是否包含元素
-  contains: function (arr, val) {
-    return arr.indexOf(val) != -1 ? true : false;
-  },
-  // 移除元素
+  /**
+   * 移除元素
+   *
+   * @param {array} arr
+   * @param {*} ele - 移除元素 可以是number string
+   * @returns {array}
+   */
   remove: function (arr, ele) {
     let index = arr.indexOf(ele);
     if (index > -1) {
@@ -11,25 +13,13 @@ module.exports = {
     }
     return arr;
   },
-  each: function (arr, fn) {
-    fn = fn || Function;
-    let a = [];
-    let args = Array.prototype.slice.call(arguments, 1);
-    for (let i = 0; i < arr.length; i++) {
-      let res = fn.apply(arr, [arr[i], i].concat(args));
-      if (res != null) a.push(res);
-    }
-  },
-  map: function (arr, fn, thisObj) {
-    let scope = thisObj || window;
-    let a = [];
-    for (let i = 0, j = arr.length; i < j; ++i) {
-      let res = fn.call(scope, arr[i], i, this);
-      if (res != null) a.push(res);
-    }
-    return a;
-  },
-  // 排序
+  /**
+   * 排序
+   *
+   * @param {array} arr
+   * @param {number} type - 默认：1.正序 2.倒序 3.乱序
+   * @returns {array}
+   */
   sort: function (arr, type = 1) {
     return arr.sort((a, b) => {
       switch (type) {
@@ -44,7 +34,12 @@ module.exports = {
       }
     })
   },
-  // 去重
+  /**
+   * 去重
+   *
+   * @param {array} arr
+   * @returns {array}
+   */
   unique: function (arr) {
     if (Array.hasOwnProperty('from')) {
       return Array.from(new Set(arr));
@@ -59,31 +54,60 @@ module.exports = {
       return r;
     }
   },
-  // 并集
-  union: function (a, b) {
-    let newArr = a.concat(b);
+  /**
+   * 并集
+   *
+   * @param {array} arr1
+   * @param {array} arr2
+   * @returns {array}
+   */
+  union: function (arr1, arr2) {
+    let newArr = arr1.concat(arr2);
     return this.unique(newArr);
   },
-  // 交集
-  intersect: function (a, b) {
+  /**
+   * 交集
+   *
+   * @param {array} arr1
+   * @param {array} arr2
+   * @returns {array}
+   */
+  intersect: function (arr1, arr2) {
     let _this = this;
-    a = this.unique(a);
-    return this.map(a, function (o) {
-      return _this.contains(b, o) ? o : null;
+    arr1 = this.unique(arr1);
+    return this.map(arr1, function (o) {
+      return _this.contains(arr2, o) ? o : null;
     });
   },
-  // 补集
+  /**
+   * 补集
+   *
+   * @param {array} arr1
+   * @param {array} arr2
+   * @returns {array}
+   */
   complement: function (arr1, arr2) {
     return this.minus(this.union(arr1, arr2), this.intersect(arr1, arr2));
   },
-  // 差集
+  /**
+   * 差集
+   *
+   * @param {array} arr1
+   * @param {array} arr2
+   * @returns {array}
+   */
   minus: function (arr1, arr2) {
     arr1 = this.unique(arr1);
     return this.map(arr1, function (o) {
       return arr2.includes(o) ? null : o;
     });
   },
-  // 将类数组转换为数组的方法
+  /**
+   * 将类数组转换为数组
+   *
+   * @param {*} ary
+   * @returns {*|Array}
+   */
   formArray: function (ary) {
     let arr = [];
     if (Array.isArray(ary)) {
@@ -91,28 +115,53 @@ module.exports = {
     } else {
       arr = Array.prototype.slice.call(ary);
     }
-    ;
+
     return arr;
   },
-  // 最大值
+  /**
+   * 最大值
+   *
+   * @param {array} arr
+   * @returns {number}
+   */
   max: function (arr) {
     return Math.max.apply(null, arr);
   },
-  // 最小值
+  /**
+   * 最小值
+   *
+   * @param {array} arr
+   * @returns {number}
+   */
   min: function (arr) {
     return Math.min.apply(null, arr);
   },
-  // 求和
+  /**
+   * 求和
+   *
+   * @param {array} arr
+   * @returns {number}
+   */
   sum: function (arr) {
     return arr.reduce((pre, cur) => {
       return pre + cur
     })
   },
-  // 平均值
+  /**
+   * 平均值
+   *
+   * @param {array} arr
+   * @returns {number}
+   */
   average: function (arr) {
     return this.sum(arr) / arr.length
   },
-  // 判断数组是否有重复的项
+  /**
+   * 判断数组是否有重复的项
+   *
+   * @param {array} arr
+   * @returns {boolean}
+   */
   isRepeat: function (arr) {
     let hash = {};
     for (let i in arr) {
@@ -121,11 +170,22 @@ module.exports = {
     }
     return false;
   },
-  // 随机返回数组中一个元素
+  /**
+   * 随机返回数组中一个元素
+   *
+   * @param {array} arr
+   * @returns {*}
+   */
   getItemByRandom: function (arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   },
-  // 获取下标
+  /**
+   * 通过元素获取下标
+   *
+   * @param {array} arr
+   * @param {*} item
+   * @returns {number}
+   */
   getIndexByItem: function (arr, item) {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] == item) {
@@ -134,16 +194,35 @@ module.exports = {
     }
     return -1;
   },
-  // 通过下标获取元素
+  /**
+   * 通过下标获取元素
+   *
+   * @param {array} arr
+   * @param {number} index
+   * @returns {*}
+   */
   getItemByIndex: function (arr, index) {
     return arr[index]
   },
-  // 通过下标设置元素
+  /**
+   * 通过下标设置元素
+   *
+   * @param {array} arr
+   * @param {number} index
+   * @param {*} item
+   * @returns {array}
+   */
   setItemByIndex: function (arr, index, item) {
     arr[index] = item
     return arr
   },
-  // 删除指定元素
+  /**
+   * 删除指定元素
+   *
+   * @param {array} arr
+   * @param {*} item
+   * @returns {*|Array}
+   */
   removeByItem: function (arr, item) {
     let uniqueArr = this.unique(arr)
     let index = this.getIndexByItem(uniqueArr, item);
@@ -152,7 +231,13 @@ module.exports = {
     }
     return uniqueArr;
   },
-  // 通过下标删除元素
+  /**
+   * 通过下标删除元素
+   *
+   * @param {array} arr
+   * @param {number} index
+   * @returns {array}
+   */
   removeByIndex: function (arr, index) {
     arr.splice(index, 1)
     return arr

@@ -1,9 +1,10 @@
 module.exports = {
   /**
    * 计算时间
-   * @param date
-   * @param pattern year,month,day,hour,minute,seconds,week,daytime,when
-   * @returns {*}
+   *
+   * @param {date} date
+   * @param {string} pattern - year,month,day,hour,minute,seconds,week,daytime,when
+   * @returns {string}
    */
   countTime: function (date, pattern) {
     let d = date
@@ -161,14 +162,19 @@ module.exports = {
   getTimeStamp: function () {
     return new Date().getTime();
   },
-  // 转换日期对象为日期字符串
+  /**
+   * 日期格式化
+   *
+   * @param {date|string} date
+   * @param {string} pattern - YYYY-MM-DD hh:mm:ss
+   * @returns {string}
+   */
   getFormatDate: function (date, pattern) {
     // 不传入date默认为当前时间
     if (date == undefined) {
       date = new Date();
-    }
-    if(typeof date === 'string') {
-      date = new Date(date)
+    }else {
+      date = this._transferDate(date);
     }
     // 不传入格式默认为全格式
     if (pattern == undefined) {
@@ -195,19 +201,25 @@ module.exports = {
     }
     return pattern;
   },
-  // 通过时间戳获取时间字符串
+  /**
+   * 通过时间戳获取时间字符串
+   *
+   * @param {number} timeStamp
+   * @param {string} pattern
+   * @returns {string}
+   */
   getFormatDateByTimeStamp: function (timeStamp, pattern) {
     return this.getFormatDate(new Date(timeStamp), pattern);
   },
   /**
    * 返回指定长度的月份集合
    *
-   * @param  {time} 时间
-   * @param  {len} 长度
-   * @param  {direction} 方向：  1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
-   * @return {Array} 数组
+   * @param  {string} time
+   * @param  {number} len - 月份集合数量
+   * @param  {number} direction - 默认 3  1.前 2.后 3.前后
+   * @return {Array}
    *
-   * @example   getMonths('2018-1-29', 6, 1)  // ->  ["2018-1", "2017-12", "2017-11", "2017-10", "2017-9", "2017-8", "2017-7"]
+   * @example   getMonths('2018-1-29', 6, 1)  //["2018-1", "2017-12", "2017-11", "2017-10", "2017-9", "2017-8", "2017-7"]
    */
   getMonths: function (time, len, direction=3) {
     let mm = new Date(time).getMonth();
@@ -261,12 +273,12 @@ module.exports = {
   /**
    * 返回指定长度的天数集合
    *
-   * @param  {time} 时间
-   * @param  {len} 长度
-   * @param  {direction} 方向： 1: 前几天;  2: 后几天;  3:前后几天  默认 3
-   * @return {Array} 数组
+   * @param  {string} time
+   * @param  {number} len
+   * @param  {number} direction - 默认 3  1.前 2.后 3.前后
+   * @return {array}
    *
-   * @example date.getDays('2018-1-29', 6) // -> ["2018-1-26", "2018-1-27", "2018-1-28", "2018-1-29", "2018-1-30", "2018-1-31", "2018-2-1"]
+   * @example getDays('2018-1-29', 6) // -> ["2018-1-26", "2018-1-27", "2018-1-28", "2018-1-29", "2018-1-30", "2018-1-31", "2018-2-1"]
    */
   getDays: function (time, len, direction) {
     let tt = new Date(time)
@@ -298,24 +310,30 @@ module.exports = {
       direction === 2 ? [tt.getFullYear() + '-' + (tt.getMonth() + 1) + '-' + tt.getDate()].concat(arr) : arr
   },
   /**
-   * 返回时分秒
-   * @param  {s} 秒数
-   * @return {String} 字符串
+   * 根据数字返回时分秒
    *
-   * @example formatHMS(3610) // -> 1h0m10s
+   * @param  {number} num
+   * @return {string}
+   *
+   * @example getHMS(3610) // -> 1小时0分10秒
    */
-  getHMS: function (s) {
+  getHMS: function (num) {
     let str = ''
-    if (s > 3600) {
-      str = Math.floor(s / 3600) + '小时' + Math.floor(s % 3600 / 60) + '分' + s % 60 + '秒'
-    } else if (s > 60) {
-      str = Math.floor(s / 60) + '分' + s % 60 + '秒'
+    if (num > 3600) {
+      str = Math.floor(num / 3600) + '小时' + Math.floor(num % 3600 / 60) + '分' + num % 60 + '秒'
+    } else if (num > 60) {
+      str = Math.floor(num / 60) + '分' + num % 60 + '秒'
     } else {
-      str = s % 60 + '秒'
+      str = num % 60 + '秒'
     }
     return str
   },
-  /*获取某月有多少天*/
+  /**
+   * 获取某月有多少天
+   *
+   * @param {string} time
+   * @returns {number}
+   */
   getMonthOfDay: function (time) {
     let date = new Date(time)
     let year = date.getFullYear()
@@ -334,40 +352,65 @@ module.exports = {
     }
     return days
   },
-  /*获取某年有多少天*/
+  /**
+   * 获取某年有多少天
+   *
+   * @param {string} time
+   * @returns {number}
+   */
   getYearOfDay: function (time) {
     let firstDayYear = this.getFirstDayOfYear(time);
     let lastDayYear = this.getLastDayOfYear(time);
     let numSecond = (new Date(lastDayYear).getTime() - new Date(firstDayYear).getTime()) / 1000;
     return Math.ceil(numSecond / (24 * 3600));
   },
-  /*获取某年的第一天*/
+  /**
+   * 获取某年的第一天
+   *
+   * @param {string} time
+   * @returns {string}
+   */
   getFirstDayOfYear: function (time) {
     let year = new Date(time).getFullYear();
     return year + "-01-01 00:00:00";
   },
-  /*获取某年最后一天*/
+  /**
+   * 获取某年最后一天
+   *
+   * @param {string} time
+   * @returns {string}
+   */
   getLastDayOfYear: function (time) {
     let year = new Date(time).getFullYear();
     let dateString = year + "-12-01 00:00:00";
     let endDay = this.getMonthOfDay(dateString);
     return year + "-12-" + endDay + " 23:59:59";
   },
-  /*获取某个日期是当年中的第几天*/
+  /**
+   * 获取某个日期是当年中的第几天
+   *
+   * @param {string} time
+   * @returns {number}
+   */
   getDayOfYear: function (time) {
     let firstDayYear = this.getFirstDayOfYear(time);
     let numSecond = (new Date(time).getTime() - new Date(firstDayYear).getTime()) / 1000;
     return Math.ceil(numSecond / (24 * 3600));
   },
-  /*获取某个日期在这一年的第几周*/
+  /**
+   * 获取某个日期在这一年的第几周
+   *
+   * @param {string} time
+   * @returns {number}
+   */
   getDayOfYearWeek: function (time) {
     let numdays = this.getDayOfYear(time);
     return Math.ceil(numdays / 7);
   },
 
-  /*转换日期*/
+  //转换日期
   _transferDate: function (date) {
-    if (typeof date == "string") {
+    if (typeof date === "string") {
       return new Date(date.replace(/-/ig, "/"));
     } else {
       return date;
@@ -389,8 +432,8 @@ module.exports = {
       hour: 24,
       second: 60,
       mills: 3600,
-      format: "yyyy-MM-dd",
-      dateFormat: "yyyy-MM-dd HH:mm:ss"
+      format: "YYYY-MM-dd",
+      dateFormat: "YYYY-MM-dd HH:mm:ss"
     };
     let times = this._numSecond(date1, date2);
     let hour = d.hour;

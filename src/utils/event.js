@@ -1,9 +1,10 @@
 module.exports = {
   /**
-   * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 idle，action 才会执行
-   * @param idle   {number}    空闲时间，单位毫秒
-   * @param action {function}  请求关联函数，实际应用需要调用的函数
-   * @return {function}    返回客户调用函数
+   * 空闲控制
+   *
+   * @param {function} action - 请求关联函数，实际应用需要调用的函数
+   * @param {number} idle - 空闲时间，单位毫秒
+   * @return {function} 返回客户调用函数,返回函数连续调用时，空闲时间必须大于或等于 idle，action 才会执行
    */
   debounce:function (action,idle) {
     let last
@@ -16,10 +17,11 @@ module.exports = {
     }
   },
   /**
-   * 频率控制 返回函数连续调用时，action 执行频率限定为 次 / delay
-   * @param delay  {number}    延迟时间，单位毫秒
-   * @param action {function}  请求关联函数，实际应用需要调用的函数
-   * @return {function}    返回客户调用函数
+   * 频率控制
+   *
+   * @param {number} delay - 延迟时间，单位毫秒
+   * @param {function} action - 请求关联函数，实际应用需要调用的函数
+   * @return {function}    返回客户调用函数,返回函数连续调用时，action 执行频率限定为 次 / delay
    */
   throttle:function (action,delay) {
     let last = 0
@@ -33,9 +35,10 @@ module.exports = {
   },
   /**
    * 检测两个物体是否相撞
-   * @param target1
-   * @param target2
-   * @param callback
+   *
+   * @param {dom} target1
+   * @param {dom} target2
+   * @param {function} callback
    */
   hit:function (target1, target2, callback){
     /*检测碰撞元素上下左右的位置*/

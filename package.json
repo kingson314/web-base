@@ -25,6 +25,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^3.0.0",
     "http-proxy-middleware": "^0.17.4",
+    "jsdoc": "^3.5.5",
     "node-sass": "^4.5.3",
     "precss": "^2.0.0"
   },

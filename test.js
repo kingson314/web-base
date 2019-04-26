@@ -1,5 +1,6 @@
 const {utils} = require('./index')
 
-let date = '2019-04-03T09:25:19.361Z'
+const arr = [2,3,5,5,6,7]
 
-console.log('date',utils.date.getFormatDate(date,'YY hh:mm'))
+let timestamp = utils.event.hit()
+console.log('res',res2)
