@@ -31,8 +31,14 @@ console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
 import 'web-base/dist/css/index.css'
 
 <div class="hide">You can't see me!</div>
-
 //display:none;
+
+<div class="flex-row-sb">
+  <div>left</div>
+  <div>middle</div>
+  <div>right</div>
+</div>
+//check out the result!
 ```
 `Note:` include reset.css, grid.css, visibility.css, common.css
 
