@@ -1,16 +1,27 @@
 {
   "name": "web-base",
-  "version": "1.2.11",
+  "version": "1.2.2",
   "description": "web development common base tools",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp",
-    "build": "rm -rf dist && gulp build && rm -rf dist/include",
-    "doc": "jsdoc utils/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev:gulp": "gulp",
+    "build:gulp": "rm -rf dist && gulp build && rm -rf dist/include",
+    "doc": "jsdoc utils/*.js"
+  },
+  "dependencies": {
+    "js-cookie": "^2.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "superagent": "^5.0.3",
+    "xlsx": "^0.14.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "chai": "^4.2.0",
     "cssnext": "^1.8.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
@@ -28,17 +39,18 @@
     "http-proxy-middleware": "^0.17.4",
     "jsdoc": "^3.5.5",
     "node-sass": "^4.5.3",
-    "precss": "^2.0.0"
+    "precss": "^2.0.0",
+    "react-scripts": "3.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/patricknieh/web-base.git"
   },
   "keywords": [
-    "nuxt",
+    "react",
     "next",
     "vue",
-    "react",
+    "nuxt",
     "egg",
     "seneca",
     "sass",
@@ -51,9 +63,19 @@
     "url": "https://github.com/patricknieh/web-base/issues"
   },
   "homepage": "https://github.com/patricknieh/web-base#readme",
-  "dependencies": {
-    "js-cookie": "^2.2.0",
-    "superagent": "^5.0.3",
-    "xlsx": "^0.14.2"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -235,6 +235,7 @@ For Documentation, visit [document]()
 - xlsx
     - read
     - write
+- react `updating...`
 
 #### `common.css class:`
 

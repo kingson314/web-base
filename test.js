@@ -1,16 +1,37 @@
-// const utils = require('./index')
-const arrayUtil = require('./index').array
-const checkUtil = require('./index').check
-const dateUtil = require('./index').date
+const chai = require('chai')
+const assert = chai.assert
+const expect = chai.expect
+const should = chai.should()
 
-let arr = ['paddy','patrick','somebody']
-let num = 'string'
-let date = new Date()
+const utils = require('./index')
 
-// console.log(utils.array.remove(arr,'somebody'))
-// console.log(utils.check.isNumber(num))
-// console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
+const {react} = utils
+const {HelloWorld} = react
 
-console.log(arrayUtil.remove(arr,'somebody'))
-console.log(checkUtil.isNumber(num))
-console.log(dateUtil.format(date,'YYYY-MM-DD hh:mm'))
+describe('array', function () {
+  describe('#remove', function () {
+    it('should be equal', function () {
+      let arr = ['paddy','patrick','somebody']
+      expect(utils.array.remove(arr,'somebody')).to.deep.equal(['paddy','patrick'])
+    });
+  });
+});
+
+describe('date', function () {
+  describe('#getYear', function () {
+    it('should be 2019', function () {
+      let date = '2019-1-23'
+      let res = utils.date.getYear(date)
+      res.should.equal(2019)
+    });
+  });
+});
+
+describe('react', function () {
+  describe('#HelloWorld', function () {
+    it('should be a function', function () {
+      assert.isFunction(HelloWorld)
+    });
+  });
+});
+

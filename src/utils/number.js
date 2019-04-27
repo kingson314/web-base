@@ -60,8 +60,8 @@ module.exports = {
    * @return {string} 返回中文小写
    */
   formatSmallChinese: function (num) {
-    let AA = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十");
-    let BB = new Array("", "十", "百", "仟", "萬", "億", "点", "");
+    let AA = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+    let BB = ["", "十", "百", "仟", "萬", "億", "点", ""];
     let a = ("" + num).replace(/(^0*)/g, "").split("."),
       k = 0,
       re = "";
@@ -80,10 +80,12 @@ module.exports = {
           BB[7] = BB[5];
           k = 0;
           break;
+        default:
+          return false
       }
-      if (k % 4 == 2 && a[0].charAt(i + 2) != 0 && a[0].charAt(i + 1) == 0)
+      if (k % 4 === 2 && a[0].charAt(i + 2) !== 0 && a[0].charAt(i + 1) === 0)
         re = AA[0] + re;
-      if (a[0].charAt(i) != 0)
+      if (a[0].charAt(i) !== 0)
         re = AA[a[0].charAt(i)] + BB[k % 4] + re;
       k++;
     }
@@ -94,9 +96,9 @@ module.exports = {
       for (let i = 0; i < a[1].length; i++)
         re += AA[a[1].charAt(i)];
     }
-    if (re == '一十')
+    if (re === '一十')
       re = "十";
-    if (re.match(/^一/) && re.length == 3)
+    if (re.match(/^一/) && re.length === 3)
       re = re.replace("一", "");
     return re;
   },
@@ -111,9 +113,9 @@ module.exports = {
     let newStr = "";
     let count = 0;
 
-    if (str.indexOf(".") == -1) {
+    if (str.indexOf(".") === -1) {
       for (let i = str.length - 1; i >= 0; i--) {
-        if (count % 3 == 0 && count != 0) {
+        if (count % 3 === 0 && count !== 0) {
           newStr = str.charAt(i) + "," + newStr;
         } else {
           newStr = str.charAt(i) + newStr;
@@ -124,7 +126,7 @@ module.exports = {
       return str
     } else {
       for (let i = str.indexOf(".") - 1; i >= 0; i--) {
-        if (count % 3 == 0 && count != 0) {
+        if (count % 3 === 0 && count !== 0) {
           newStr = str.charAt(i) + "," + newStr; //碰到3的倍数则加上“,”号
         } else {
           newStr = str.charAt(i) + newStr; //逐个字符相接起来
@@ -143,13 +145,13 @@ module.exports = {
    */
   formatBigMoney: function (money) {
     //汉字的数字
-    var cnNums = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖');
+    var cnNums = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
     //基本单位
-    var cnIntRadice = new Array('', '拾', '佰', '仟');
+    var cnIntRadice = ['', '拾', '佰', '仟'];
     //对应整数部分扩展单位
-    var cnIntUnits = new Array('', '万', '亿', '兆');
+    var cnIntUnits = ['', '万', '亿', '兆'];
     //对应小数部分单位
-    var cnDecUnits = new Array('角', '分', '毫', '厘');
+    var cnDecUnits = ['角', '分', '毫', '厘'];
     //整数金额时后面跟的字符
     var cnInteger = '整';
     //整型完以后的单位
@@ -164,19 +166,19 @@ module.exports = {
     var chineseStr = '';
     //分离金额后用的数组，预定义
     var parts;
-    if (money == '') { return ''; }
+    if (money === '') { return ''; }
     money = parseFloat(money);
     if (money >= maxNum) {
       //超出最大处理数字
       return '';
     }
-    if (money == 0) {
+    if (money === 0) {
       chineseStr = cnNums[0] + cnIntLast + cnInteger;
       return chineseStr;
     }
     //转换为字符串
     money = money.toString();
-    if (money.indexOf('.') == -1) {
+    if (money.indexOf('.') === -1) {
       integerNum = money;
       decimalNum = '';
     } else {
@@ -193,7 +195,7 @@ module.exports = {
         var p = IntLen - i - 1;
         var q = p / 4;
         var m = p % 4;
-        if (n == '0') {
+        if (n === '0') {
           zeroCount++;
         } else {
           if (zeroCount > 0) {
@@ -203,25 +205,25 @@ module.exports = {
           zeroCount = 0;
           chineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
         }
-        if (m == 0 && zeroCount < 4) {
+        if (m === 0 && zeroCount < 4) {
           chineseStr += cnIntUnits[q];
         }
       }
       chineseStr += cnIntLast;
     }
     //小数部分
-    if (decimalNum != '') {
-      var decLen = decimalNum.length;
-      for (var i = 0; i < decLen; i++) {
-        var n = decimalNum.substr(i, 1);
-        if (n != '0') {
+    if (decimalNum !== '') {
+      let decLen = decimalNum.length;
+      for (let i = 0; i < decLen; i++) {
+        let n = decimalNum.substr(i, 1);
+        if (n !== '0') {
           chineseStr += cnNums[Number(n)] + cnDecUnits[i];
         }
       }
     }
-    if (chineseStr == '') {
+    if (chineseStr === '') {
       chineseStr += cnNums[0] + cnIntLast + cnInteger;
-    } else if (decimalNum == '') {
+    } else if (decimalNum === '') {
       chineseStr += cnInteger;
     }
     return chineseStr;
@@ -236,22 +238,16 @@ module.exports = {
     switch (true) {
       case num > 999999999:
         return `${(num/1000000000).toFixed(2)} 十亿`
-        break
       case num > 99999999:
         return `${(num/100000000).toFixed(2)} 亿`
-        break
       case num > 9999999:
         return `${(num/10000000).toFixed(2)} 千万`
-        break
       case num > 999999:
         return `${(num/1000000).toFixed(2)} 百万`
-        break
       case num > 99999:
         return `${(num/100000).toFixed(2)} 十万`
-        break
       case num > 9999:
         return `${(num/10000).toFixed(2)} 万`
-        break
       default:
         return num
     }

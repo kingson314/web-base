@@ -31,7 +31,7 @@ module.exports = {
    * @return {string} 返回文件后缀名
    */
   getExt: function (fileName) {
-    if (fileName.lastIndexOf(".") == -1)
+    if (fileName.lastIndexOf(".") === -1)
       return fileName;
     let pos = fileName.lastIndexOf(".") + 1;
     return fileName.substring(pos, fileName.length).toLowerCase();
@@ -45,7 +45,7 @@ module.exports = {
    */
   getName: function (fileName) {
     let pos = fileName.lastIndexOf(".");
-    if (pos == -1) {
+    if (pos === -1) {
       return fileName;
     } else {
       return fileName.substring(0, pos);

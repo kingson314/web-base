@@ -109,7 +109,7 @@ module.exports = {
     if (/[A-Z]/.test(str)) {
       Lv++
     }
-    if (/[\.|-|_]/.test(str)) {
+    if (/[.|-|_]/.test(str)) {
       Lv++
     }
     return Lv;

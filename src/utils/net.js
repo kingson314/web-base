@@ -23,7 +23,7 @@ module.exports = {
   getParam: function (name) {
     let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     let r = decodeURI(window.location.search).substr(1).match(reg);
-    if (r != null) return r[2];
+    if (r !== null) return r[2];
     return null;
   },
   /**
@@ -39,7 +39,7 @@ module.exports = {
       _rs = {};
     for (let i = 0, _len = _arrS.length; i < _len; i++) {
       let pos = _arrS[i].indexOf('=');
-      if (pos == -1) {
+      if (pos === -1) {
         continue;
       }
       let name = _arrS[i].substring(0, pos),
@@ -81,7 +81,7 @@ module.exports = {
     let xhr = new XMLHttpRequest();
 
     // 连接服务器open(方法GET/POST，请求地址， 异步传输)
-    if (opts.method == 'GET') {
+    if (opts.method === 'GET') {
       xhr.open(opts.method, opts.url + "?" + params_format(opts.data), opts.async);
       xhr.send();
     } else {
@@ -202,7 +202,7 @@ module.exports = {
         cookieValue = null
       if(cookieStart > -1){
         var cookieEnd = cookieStr.indexOf(";",cookieStart)
-        if(cookieEnd == -1){
+        if(cookieEnd === -1){
           cookieEnd = cookieStr.length
         }
         cookieValue = decodeURIComponent(cookieStr.substring(cookieStart + cookieName.length,cookieEnd))

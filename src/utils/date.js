@@ -27,7 +27,7 @@ module.exports = {
 
     for (let k in o) {
       if (new RegExp("(" + k + ")").test(pattern)) {
-        pattern = pattern.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+        pattern = pattern.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
       }
     }
     return pattern;
@@ -67,31 +67,31 @@ module.exports = {
       seconds = "0" + seconds
     }
 
-    if (pattern == "year") {
+    if (pattern === "year") {
       return year;
     }
 
-    if (pattern == "month") {
+    if (pattern === "month") {
       return month;
     }
 
-    if (pattern == "day") {
+    if (pattern === "day") {
       return day;
     }
 
-    if (pattern == "hour") {
+    if (pattern === "hour") {
       return hour;
     }
 
-    if (pattern == "minute") {
+    if (pattern === "minute") {
       return minute;
     }
 
-    if (pattern == "seconds") {
+    if (pattern === "seconds") {
       return seconds;
     }
 
-    if (pattern == "week") {
+    if (pattern === "week") {
       let w_d;
       switch (date.getDay()) {
         case 0:
@@ -115,11 +115,13 @@ module.exports = {
         case 6:
           w_d = "星期六";
           break;
+        default:
+          return null
       }
       return w_d;
     }
 
-    if (pattern == "daytime") {
+    if (pattern === "daytime") {
       if (hour < 11 && hour > 6) {
         return "早晨";
       }
@@ -137,7 +139,7 @@ module.exports = {
       }
     }
 
-    if (pattern == "when") {
+    if (pattern === "when") {
       let now = new Date();
       let now_year = now.getFullYear();
       let now_month = now.getMonth() + 1;
@@ -149,27 +151,27 @@ module.exports = {
       // 比较年份
       if (now_year > year) {
         return (now_year - year) + '年前'
-      } else if (now_year == year) {
+      } else if (now_year === year) {
         // 比较月份
         if (now_month > month) {
           return (now_month - month) + '个月前'
-        } else if (now_month == month) {
+        } else if (now_month === month) {
           // 比较号数
           if (now_day > day) {
             return (now_day - day) + '天前'
-          } else if (now_day == day) {
+          } else if (now_day === day) {
             // 比较小时
             if (now_hour > hour) {
               return (now_hour - hour) + '小时前'
-            } else if (now_hour == hour) {
+            } else if (now_hour === hour) {
               // 比较分钟
               if (now_minute > minute) {
                 return (now_minute - minute) + '分钟前'
-              } else if (now_minute == minute) {
+              } else if (now_minute === minute) {
                 // 比较秒
                 if (now_seconds > seconds) {
                   return (now_seconds - seconds) + '秒前'
-                } else if (now_seconds == seconds) {
+                } else if (now_seconds === seconds) {
                   return '刚刚'
                 } else {
                   return (seconds - now_seconds) + '秒后'
@@ -250,16 +252,14 @@ module.exports = {
     switch (pattern) {
       case 'day':
         return num * 24 * 60 * 60 * 1000
-        break
       case 'hour':
         return num * 60 * 60 * 1000
-        break
       case 'minute':
         return num * 60 * 1000
-        break
       case 'second':
         return num * 1000
-        break
+      default:
+        return null
     }
   },
   /**
@@ -272,16 +272,14 @@ module.exports = {
     switch (pattern) {
       case 'day':
         return num / 24 / 60 / 60 / 1000
-        break
       case 'hour':
         return num / 60 / 60 / 1000
-        break
       case 'minute':
         return num / 60 / 1000
-        break
       case 'second':
         return num / 1000
-        break
+      default:
+        return null
     }
   },
 
@@ -335,7 +333,7 @@ module.exports = {
    */
   getHours12: function (date) {
     let hour = this._transferDate(date).getHours();
-    return hour % 12 == 0 ? 12 : hour % 12;
+    return hour % 12 === 0 ? 12 : hour % 12;
   },
   /**
    * 当月多少号
@@ -806,7 +804,7 @@ module.exports = {
   isEq: function (date1, date2) {
     let stime = this.getTime(this._transferDate(date1));
     let etime = this.getTime(this._transferDate(date2));
-    return stime == etime ? true : false;
+    return stime === etime ? true : false;
   },
   /**
    * 判断date2是否晚于date1

@@ -19,7 +19,7 @@ const precss = require('precss')
 // const ENV = 'dev'
 
 // const jsonPlaceholderProxy = proxy('/api', {
-//   target: ENV == 'dev' ? 'http://localhost:8080/' : 'http://localhost:8081/',
+//   target: ENV === 'dev' ? 'http://localhost:8080/' : 'http://localhost:8081/',
 //   changeOrigin: true, // for vhosted sites, changes host header to match to target's host
 //   logLevel: 'debug',
 //   pathRewrite: {
@@ -28,8 +28,8 @@ const precss = require('precss')
 // })
 
 const styles = {
-  src: 'static/css/**/*',
-  dest: 'dist/css/lib'
+  src: 'css/**/*',
+  dest: 'src/css'
 }
 const script = {
   src: 'static/js/**/*',

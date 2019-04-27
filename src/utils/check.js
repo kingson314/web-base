@@ -12,7 +12,7 @@ module.exports = {
       isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1,
       isEdge = userAgent.indexOf("Edge") > -1 && !isIE,
       isFF = userAgent.indexOf("Firefox") > -1,
-      isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1,
+      isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1,
       isChrome = userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Safari") > -1;
 
     // console.log(userAgent)
@@ -238,7 +238,7 @@ module.exports = {
    * @return {boolean}
    */
   isURL: function(str){
-    return /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/.test(str);
+    return /(http|ftp|https):\/\/[\w\-_]+(.[\w\-_]+)+([\w\-.,@?^=%&:/~+#]*[\w\-@?^=%&/~+#])?/.test(str);
   },
   /**
    * @param {string} str - 字符串
@@ -305,11 +305,11 @@ module.exports = {
   },
   /**
    * 判断是否为中国身份证
-   * @param {string} str - 字符串
+   * @param {string} sId - 字符串
    * @return {string|boolean} 返回错误信息或true
    */
-  isChineseCardID: function (str) {
-    if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(str)) return '身份证的长度或格式错误'
+  isChineseCardID: function (sId) {
+    if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(sId)) return '身份证的长度或格式错误'
     //身份证城市
     let aCity = {
       11: "北京",
@@ -353,7 +353,7 @@ module.exports = {
     // 出生日期验证
     let sBirthday = (sId.substr(6, 4) + "-" + Number(sId.substr(10, 2)) + "-" + Number(sId.substr(12, 2))).replace(/-/g, "/"),
       d = new Date(sBirthday)
-    if (sBirthday != (d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate())) return '身份证上的出生日期非法'
+    if (sBirthday !== (d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate())) return '身份证上的出生日期非法'
 
     // 身份证号码校验
     let sum = 0,
@@ -363,7 +363,7 @@ module.exports = {
       sum += sId[i] * weights[i];
     }
     let last = codes[sum % 11]; //计算出来的最后一位身份证号码
-    if (sId[sId.length - 1] != last) return '身份证号非法'
+    if (sId[sId.length - 1] !== last) return '身份证号非法'
 
     return true
   },
