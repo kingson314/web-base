@@ -19,7 +19,7 @@ let num = 'string'
 let date = new Date()
 
 console.log(utils.array.remove(arr,'somebody'))
-console.log(utils.number.isNumber(num))
+console.log(utils.check.isNumber(num))
 console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
 
 // [ 'paddy', 'patrick' ]
