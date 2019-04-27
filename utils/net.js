@@ -1,5 +1,5 @@
 /**
- * @module utils/net
+ * @module net
  */
 const Cookies = require('js-cookie')
 const superagent = require('superagent')

@@ -5,30 +5,40 @@ Web development common base tools.
 ## Example Usage
 
 ```
+npm i web-base
+//or
 yarn add web-base
 ```
 
 #### `utils`
 ```
-import {utils} from 'web-base'
+import utils from 'web-base'
 
 let arr = ['paddy','patrick','somebody']
 let num = 'string'
 let date = new Date()
 
 console.log(utils.array.remove(arr,'somebody'))
-console.log(utils.check.isNumber(num))
+console.log(utils.number.isNumber(num))
 console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
 
 // [ 'paddy', 'patrick' ]
 // false
 // 2019-04-25 21:40
 
+//or
+import {array as arrayUtil,check as checkUtil,date as dateUtil} from 'web-base'
+
+//...
+console.log(arrayUtil.remove(arr,'somebody'))
+console.log(checkUtil.isNumber(num))
+console.log(dateUtil.format(date,'YYYY-MM-DD hh:mm'))
+//...
 ```
 
 #### `css`
 ```
-import 'web-base/dist/css/index.css'
+import 'web-base/css/base.css'
 
 <div class="hide">You can't see me!</div>
 //display:none;

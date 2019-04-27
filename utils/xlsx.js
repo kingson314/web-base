@@ -1,5 +1,5 @@
 /**
- * @module utils/xlsx
+ * @module xlsx
  */
 const XLSX = require('xlsx')
 

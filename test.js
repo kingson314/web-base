@@ -1,7 +1,16 @@
-const {utils} = require('./index')
+// const utils = require('./index')
+const arrayUtil = require('./index').array
+const checkUtil = require('./index').check
+const dateUtil = require('./index').date
 
-let date1 = '2019-1-1'
-let date2 = '2019-1-2'
+let arr = ['paddy','patrick','somebody']
+let num = 'string'
+let date = new Date()
 
-let res = utils.date.betweenHour(date1,date2)
-console.log('res %o', res)
+// console.log(utils.array.remove(arr,'somebody'))
+// console.log(utils.check.isNumber(num))
+// console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
+
+console.log(arrayUtil.remove(arr,'somebody'))
+console.log(checkUtil.isNumber(num))
+console.log(dateUtil.format(date,'YYYY-MM-DD hh:mm'))

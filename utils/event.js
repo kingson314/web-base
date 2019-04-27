@@ -1,5 +1,5 @@
 /**
- * @module utils/event
+ * @module event
  */
 let nextTime = 0
 

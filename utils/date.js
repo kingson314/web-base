@@ -1,5 +1,5 @@
 /**
- * @module utils/date
+ * @module date
  */
 
 module.exports = {
@@ -287,7 +287,7 @@ module.exports = {
 
   /**
    * 当天当前时间距离1970年1月1日的毫秒数
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getTime: function (date) {
@@ -295,7 +295,7 @@ module.exports = {
   },
   /**
    * 当天当前时间的毫秒数
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getMilliseconds: function (date) {
@@ -303,7 +303,7 @@ module.exports = {
   },
   /**
    * 当天当前时间的秒数
-   * @param date
+   * @param date {date|string}
    * @return {string|number}
    */
   getSeconds: function (date) {
@@ -312,7 +312,7 @@ module.exports = {
   },
   /**
    * 当天当前时间的分钟数
-   * @param date
+   * @param date {date|string}
    * @return {string|number}
    */
   getMinutes: function (date) {
@@ -321,7 +321,7 @@ module.exports = {
   },
   /**
    * 当天几点
-   * @param date
+   * @param date {date|string}
    * @return {string|number}
    */
   getHours: function (date) {
@@ -330,7 +330,7 @@ module.exports = {
   },
   /**
    * 当天几点（12小时制时）
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getHours12: function (date) {
@@ -339,7 +339,7 @@ module.exports = {
   },
   /**
    * 当月多少号
-   * @param date
+   * @param date {date|string}
    * @return {string|number}
    */
   getDay: function (date) {
@@ -348,7 +348,7 @@ module.exports = {
   },
   /**
    * 当月星期几
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getWeek: function (date) {
@@ -356,7 +356,7 @@ module.exports = {
   },
   /**
    * 当年几月
-   * @param date
+   * @param date {date|string}
    * @return {string|number}
    */
   getMonth: function (date) {
@@ -365,7 +365,7 @@ module.exports = {
   },
   /**
    * 当年第几季度
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getPeriod: function (date) {
@@ -374,7 +374,7 @@ module.exports = {
   },
   /**
    * 获取年份
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   getYear: function (date) {
@@ -383,7 +383,7 @@ module.exports = {
 
   /**
    * 当年有多少天
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   daysOfYear: function (date) {
@@ -393,7 +393,7 @@ module.exports = {
   },
   /**
    * 当月有多少天
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   daysOfMonth: function (date) {
@@ -403,7 +403,7 @@ module.exports = {
   },
   /**
    * 当年中的第几天
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   dayOfYear: function (date) {
@@ -411,7 +411,7 @@ module.exports = {
   },
   /**
    * 当月中的第几天
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   dayOfMonth: function (date) {
@@ -419,7 +419,7 @@ module.exports = {
   },
   /**
    * 当年的第几周
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   weekOfYear: function (date) {
@@ -428,7 +428,7 @@ module.exports = {
   },
   /**
    * 当月中的星期几
-   * @param date
+   * @param date {date|string}
    * @return {number}
    */
   weekOfMonth: function (date) {
@@ -436,7 +436,7 @@ module.exports = {
   },
   /**
    * 当年的第一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   firstDayOfYear: function (date) {
@@ -446,7 +446,7 @@ module.exports = {
   },
   /**
    * 当年的最后一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   lastDayOfYear: function (date) {
@@ -457,7 +457,7 @@ module.exports = {
   },
   /**
    * 当月的第一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   firstDayOfMonth: function (date) {
@@ -468,7 +468,7 @@ module.exports = {
   },
   /**
    * 当月最后一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   lastDayOfMonth: function (date) {
@@ -479,7 +479,7 @@ module.exports = {
   },
   /**
    * 当天的开始时间
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   firstTimeOfDay: function (date) {
@@ -490,7 +490,7 @@ module.exports = {
   },
   /**
    * 当天的结束时间
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   lastTimeOfDay: function (date) {
@@ -501,7 +501,7 @@ module.exports = {
   },
   /**
    * 当周的第一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   firstDayOfWeek: function (date) {
@@ -514,7 +514,7 @@ module.exports = {
   },
   /**
    * 当周的最后一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   lastDayOfWeek: function (date) {
@@ -527,7 +527,7 @@ module.exports = {
   },
   /**
    * 下个月的第一天
-   * @param date
+   * @param date {date|string}
    * @return {string}
    */
   firstDayOfNextMonth: function (date) {
@@ -545,8 +545,8 @@ module.exports = {
 
   /**
    * 获取两个时间间隔毫秒数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenMillSecond: function (date1, date2) {
@@ -556,8 +556,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔秒数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenSecond: function (date1, date2) {
@@ -565,8 +565,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔分钟数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenMinute: function (date1, date2) {
@@ -574,8 +574,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔小时数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenHour: function (date1, date2) {
@@ -583,8 +583,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔天数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenDay: function (date1, date2) {
@@ -602,8 +602,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔月数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenMonth: function (date1, date2) {
@@ -612,8 +612,8 @@ module.exports = {
   },
   /**
    * 获取两个时间间隔年数
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {number}
    */
   betweenYear: function (date1, date2) {
@@ -623,7 +623,7 @@ module.exports = {
 
   /**
    * 在一个时间上加上多少毫秒
-   * @param date
+   * @param date {date|string}
    * @param millisSeconds {number}
    * @return {string}
    */
@@ -635,7 +635,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上多少秒
-   * @param date
+   * @param date {date|string}
    * @param seconds {number}
    * @return {string}
    */
@@ -647,7 +647,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上多少分钟
-   * @param date
+   * @param date {date|string}
    * @param minutes {number}
    * @return {string}
    */
@@ -659,7 +659,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上小时数
-   * @param date
+   * @param date {date|string}
    * @param hours {number}
    * @return {string}
    */
@@ -671,7 +671,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上天数
-   * @param date
+   * @param date {date|string}
    * @param days {number}
    * @return {string}
    */
@@ -683,7 +683,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上多少个月,这里是按照一个月30天来计算天数的
-   * @param date
+   * @param date {date|string}
    * @param months {number}
    * @return {string}
    */
@@ -695,7 +695,7 @@ module.exports = {
   },
   /**
    * 在一个时间上加上多少年,这里是按照一年365天来计算天数的，isLoop是否闰年
-   * @param date
+   * @param date {date|string}
    * @param years {number}
    * @param isLoop {boolean}
    * @return {string}
@@ -711,7 +711,7 @@ module.exports = {
 
   /**
    * 在一个时间上减去多少毫秒
-   * @param date
+   * @param date {date|string}
    * @param millisSeconds {number}
    * @return {string}
    */
@@ -723,7 +723,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去多少秒
-   * @param date
+   * @param date {date|string}
    * @param seconds {number}
    * @return {string}
    */
@@ -735,7 +735,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去多少分钟
-   * @param date
+   * @param date {date|string}
    * @param minutes {number}
    * @return {string}
    */
@@ -747,7 +747,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去小时数
-   * @param date
+   * @param date {date|string}
    * @param hours {number}
    * @return {string}
    */
@@ -759,7 +759,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去天数
-   * @param date
+   * @param date {date|string}
    * @param days {number}
    * @return {string}
    */
@@ -771,7 +771,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去多少个月,这里是按照一个月30天来计算天数的
-   * @param date
+   * @param date {date|string}
    * @param months {number}
    * @return {string}
    */
@@ -783,7 +783,7 @@ module.exports = {
   },
   /**
    * 在一个时间上减去多少年,这里是按照一年365天来计算天数的，isLoop是否闰年
-   * @param date
+   * @param date {date|string}
    * @param years {number}
    * @param isLoop {boolean}
    * @return {string}
@@ -799,8 +799,8 @@ module.exports = {
 
   /**
    * 判断两个时间是否一样
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {boolean}
    */
   isEq: function (date1, date2) {
@@ -810,8 +810,8 @@ module.exports = {
   },
   /**
    * 判断date2是否晚于date1
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {boolean}
    */
   isAfter: function (date1, date2) {
@@ -821,8 +821,8 @@ module.exports = {
   },
   /**
    * 判断date2是否早于date1
-   * @param date1
-   * @param date2
+   * @param date1 {date|string}
+   * @param date2 {date|string}
    * @return {boolean}
    */
   isBefore: function (date1, date2) {

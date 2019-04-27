@@ -37,12 +37,12 @@ const script = {
 }
 
 const scss = {
-  src: 'src/scss/**/*',
+  src: 'scss/**/*',
   dest: 'dist/css'
 }
 const css = {
   src: 'src/css/**/*',
-  dest: 'dist/css'
+  dest: 'css'
 }
 const js = {
   src: 'src/js/**/*',
@@ -159,8 +159,6 @@ gulp.task('watch', () => {
   // gulp.watch(styles.src,['copy-styles'])
   // gulp.watch('src/**/*.html', ['fileinclude'])
 })
-
-gulp.task('devscss', ['sass', 'watch'])
 
 gulp.task('default', ['js', 'sass', 'postcss', 'fileinclude','copy-img',  'copy-script','copy-styles', 'watch', 'connect'])
 gulp.task('build', ['js', 'sass', 'postcss', 'fileinclude', 'copy-img', 'copy-script','copy-styles'])

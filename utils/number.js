@@ -1,5 +1,5 @@
 /**
- * @module utils/number
+ * @module number
  */
 module.exports = {
   /**
