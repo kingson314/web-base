@@ -1,6 +1,7 @@
 const {utils} = require('./index')
 
-const arr = [2,3,5,5,6,7]
+let date1 = '2019-1-1'
+let date2 = '2019-1-2'
 
-let timestamp = utils.date.getHMS(3610)
-console.log('res',timestamp)
+let res = utils.date.betweenHour(date1,date2)
+console.log('res %o', res)

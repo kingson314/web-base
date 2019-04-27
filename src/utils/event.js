@@ -1,6 +1,8 @@
 /**
  * @module utils/event
  */
+let nextTime = 0
+
 module.exports = {
   /**
    * 空闲控制
@@ -56,5 +58,20 @@ module.exports = {
       target2Left = target2.offsetLeft,
       target2Right = target2.offsetLeft + target2.offsetWidth;
     if (target1Foot > target2Top && target1Right > target2Left && target1Top < target2Foot && target1Left < target2Right) callback()
+  },
+  /**
+   * 随机间歇执行
+   * @param speed  {number} 速度
+   * @param callback {function}
+   * @return {function}
+   */
+  frequency: function (speed,callback) {
+    return setInterval(() => {
+      let now = new Date().getTime();
+      if (now >= nextTime) {
+        callback()
+        nextTime = now + Math.random()*speed
+      }
+    }, 300)
   },
 }

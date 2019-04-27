@@ -367,5 +367,4 @@ module.exports = {
 
     return true
   },
-
 }

@@ -1,6 +1,6 @@
 # `web-base`
 
-> Web development common base tools.
+Web development common base tools.
 
 ## Example Usage
 
@@ -122,28 +122,67 @@ For Documentation, visit [document]()
     - isBankCard
     - isChineseIdCard
 - date
-    - format `日期格式化 如：YYYY-MM-DD hh:mm:ss`
+    - format `日期格式化 默认如：YYYY-MM-DD hh:mm:ss`
     - countTime `计算时间的year,month,day,hour,minute,seconds,week,daytime,when 如：早晨，25秒以前等等`
-    - getTimeStamp `获取时间戳`
-    - getFormatDateByTimeStamp `通过时间戳获取格式化日期`
-    - getMonths `返回指定长度的月份集合`
-    - getDays `返回指定长度的天数集合`
-    - getHMS `返回时分秒`
-    - getMonthOfDay `获取某月有多少天`
-    - getYearOfDay `获取某年有多少天`
-    - getFirstDayOfYear `获取某年的第一天`
-    - getLastDayOfYear `获取某年最后一天`
-    - getDayOfYear `获取某个日期是当年中的第几天`
-    - getDayOfYearWeek `获取某个日期在这一年的第几周`
-- time
-    - getMillisecond `获取毫秒数`
-    - formatMillisecond `转换毫秒数`
-    - frequency `随机间歇执行`
     - countDown `倒计时`
+    - getHMS `根据秒数返回时分秒格式 如：getHMS(3610) -> 1小时0分10秒`
+    - countMillisecond `计算毫秒数`
+    - formatMillisecond `转换毫秒数`
+    - getTime `当天当前时间距离1970年1月1日的毫秒数`
+    - getMilliseconds `当天当前时间的毫秒数`
+    - getSeconds `当天当前时间的秒数`
+    - getMinutes `当天当前时间的分钟数`
+    - getHours `当天几点`
+    - getHours12 `当天几点（12小时制时）`
+    - getDay `当月多少号`
+    - getWeek `当月星期几`
+    - getMonth `当年几月`
+    - getPeriod `当年第几季度`
+    - getYear `获取年份`
+    - daysOfYear `当年有多少天`
+    - daysOfMonth `当月有多少天`
+    - dayOfYear `当年中的第几天`
+    - dayOfMonth `当月中的第几天`
+    - weekOfYear `当年的第几周`
+    - weekOfMonth `当月中的星期几`
+    - firstDayOfYear `当年的第一天`
+    - lastDayOfYear `当年的最后一天`
+    - firstDayOfMonth `当月的第一天`
+    - lastDayOfMonth `当月最后一天`
+    - firstTimeOfDay `当天的开始时间`
+    - lastTimeOfDay `当天的结束时间`
+    - firstDayOfWeek `当周的第一天`
+    - lastDayOfWeek `当周的最后一天`
+    - firstDayOfNextMonth `下个月的第一天`
+    - betweenMillSecond `获取两个时间间隔毫秒数`
+    - betweenSecond `获取两个时间间隔秒数`
+    - betweenMinute `获取两个时间间隔分钟数`
+    - betweenHour `获取两个时间间隔小时数`
+    - betweenDay `获取两个时间间隔天数`
+    - betweenMonth `获取两个时间间隔月数`
+    - betweenYear `获取两个时间间隔年数`
+    - plusMillisSeconds `在一个时间上加上多少毫秒`
+    - plusSeconds `在一个时间上加上多少秒`
+    - plusMinutes `在一个时间上加上多少分钟`
+    - plusHours `在一个时间上加上小时数`
+    - plusDays `在一个时间上加上天数`
+    - plusMonths `在一个时间上加上多少个月,这里是按照一个月30天来计算天数的`
+    - plusYears `在一个时间上加上多少年,这里是按照一年365天来计算天数的，isLoop是否闰年`
+    - minusMillisSeconds `在一个时间上减去多少毫秒`
+    - minusSeconds `在一个时间上减去多少秒`
+    - minusMinutes `在一个时间上减去多少分钟`
+    - minusHours `在一个时间上减去小时数`
+    - minusDays `在一个时间上减去天数`
+    - minusMonths `在一个时间上减去多少个月,这里是按照一个月30天来计算天数的`
+    - minusYears `在一个时间上减去多少年,这里是按照一年365天来计算天数的，isLoop是否闰年`
+    - isEq `判断两个时间是否一样`
+    - isAfter `判断date2是否晚于date1`
+    - isBefore `判断date2是否早于date1`
 - event
     - debounce `空闲控制`
     - throttle `频率控制`
     - hit `检测两个物体是否相撞`
+    - frequency `随机间歇执行`
 - file
     - formatSize `格式文件大小单位`
     - getExt `获取文件的后缀名`

@@ -3,15 +3,16 @@
  * @namespace utils
  */
 const utils = {
-  array: require('./array'),
+  //type
   check: require('./check'),
+  array: require('./array'),
+  number: require('./number'),
+  string: require('./string'),
   date: require('./date'),
+  //other
   event: require('./event'),
   file: require('./file'),
   net: require('./net'),
-  number: require('./number'),
-  string: require('./string'),
-  time: require('./time'),
   xlsx: require('./xlsx'),
 }
 
