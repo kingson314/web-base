@@ -1,6 +1,6 @@
 # `web-base`
 
-Web development common base tools.
+Web development common base package.
 
 ## Example Usage
 
@@ -29,11 +29,18 @@ console.log(utils.date.format(date,'YYYY-MM-DD hh:mm'))
 //or
 import {array as arrayUtil,check as checkUtil,date as dateUtil} from 'web-base'
 
-//...
 console.log(arrayUtil.remove(arr,'somebody'))
 console.log(checkUtil.isNumber(num))
 console.log(dateUtil.format(date,'YYYY-MM-DD hh:mm'))
-//...
+
+//other package
+import { numeral } from 'web-base'
+
+let num = numeral('1,000')
+console.log(num.value())  //1000
+
+import { _ } from 'web-base'
+_.chunk(['a', 'b', 'c', 'd'],2) //[['a', 'b'], ['c', 'd']]
 ```
 
 #### `css`
@@ -54,7 +61,7 @@ import 'web-base/css/base.css'
 
 ## API
 
-For Documentation, visit [document]()
+For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 
 #### `utils:`
 - string
@@ -214,11 +221,11 @@ For Documentation, visit [document]()
     - getParams `获取所有url参数`
     - ajax `http请求`
     - fetch `fetch请求`
-    - request `dependency superagent`
-    - cookie
+    - request `dependency superagent` see [superagent](http://visionmedia.github.io/superagent)
+    - cookie `dependency js-cookie` see [js-cookie](https://www.npmjs.com/package/js-cookie)
         - parse `转换字符串cookie`
         - getFromString `从headrs中获取cookie值`
-        - getJSON `dependency js-cookie`
+        - getJSON 
         - get 
         - set 
         - remove 
@@ -236,6 +243,17 @@ For Documentation, visit [document]()
     - read
     - write
 - react `updating...`
+- moment `dependency moment` see [moment](http://momentjs.cn/docs/#/parsing)
+- numeral `dependency numeral` see [numeral](http://numeraljs.com)
+- math `dependency mathjs` see [mathjs](https://mathjs.org)
+- anime `dependency animejs` see [animejs](https://animejs.com/documentation)
+- d3 `dependency d3` see [d3](https://github.com/d3/d3/blob/master/API.md)
+- $ `dependency jquery` see [jquery](https://oscarotero.com/jquery)
+- \_ `dependency lodash` see [lodash](https://www.lodashjs.com)
+- Mock `dependency mockjs` see [mockjs](http://mockjs.com/examples.html)
+- Konva `dependency konva` see [konva](https://konvajs.org/api/Konva.html)
+- ReactKonva `dependency react-konva` see [react-konva](https://www.npmjs.com/package/react-konva)
+- ViserReact `dependency viser-react` see [viser-react](https://www.npmjs.com/package/viser-react)
 
 #### `common.css class:`
 
@@ -316,5 +334,3 @@ For Documentation, visit [document]()
 `Note:` 
 - grid.css see [Foundation XY Grid](https://foundation.zurb.com/sites/docs/xy-grid.html)	
 - visibility.css see [Foundation Visibility Classes](https://foundation.zurb.com/sites/docs/visibility.html)
-- utils.net.request see [superagent](http://visionmedia.github.io/superagent)
-- utils.net.cookie see [js-cookie](https://www.npmjs.com/package/js-cookie)
