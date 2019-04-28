@@ -10,7 +10,6 @@ const Mock = require('mockjs')
 
 const Konva = require('konva')
 const ReactKonva = require('react-konva')
-const ViserReact = require('viser-react')
 
 const react = {
   HelloWorld: require('../comps/HelloWorld'),
@@ -36,7 +35,6 @@ const utils = {
 
   Konva,
   ReactKonva,
-  ViserReact,
 
   check: require('./check'),
 
