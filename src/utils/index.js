@@ -7,13 +7,11 @@ const $ = require("jquery")
 const _ = require("lodash")
 
 const Mock = require('mockjs')
-
 const Konva = require('konva')
-const ReactKonva = require('react-konva')
 
-const react = {
-  HelloWorld: require('../comps/HelloWorld'),
-}
+// const react = {
+//   HelloWorld: require('../comps/HelloWorld'),
+// }
 
 /**
  * @author paddy (patricknieh@hotmail.com)
@@ -22,7 +20,6 @@ const react = {
  */
 
 const utils = {
-  react,
   moment,
   numeral,
   math,
@@ -32,9 +29,7 @@ const utils = {
   _,
 
   Mock,
-
   Konva,
-  ReactKonva,
 
   check: require('./check'),
 

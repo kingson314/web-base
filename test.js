@@ -5,9 +5,6 @@ const should = chai.should()
 
 const utils = require('./index')
 
-const {react} = utils
-const {HelloWorld} = react
-
 describe('array', function () {
   describe('#remove', function () {
     it('should be equal', function () {
@@ -26,12 +23,3 @@ describe('date', function () {
     });
   });
 });
-
-describe('react', function () {
-  describe('#HelloWorld', function () {
-    it('should be a function', function () {
-      assert.isFunction(HelloWorld)
-    });
-  });
-});
-

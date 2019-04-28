@@ -242,7 +242,6 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - xlsx
     - read
     - write
-- react `updating...`
 - moment `dependency moment` see [moment](http://momentjs.cn/docs/#/parsing)
 - numeral `dependency numeral` see [numeral](http://numeraljs.com)
 - math `dependency mathjs` see [mathjs](https://mathjs.org)
@@ -252,8 +251,6 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - \_ `dependency lodash` see [lodash](https://www.lodashjs.com)
 - Mock `dependency mockjs` see [mockjs](http://mockjs.com/examples.html)
 - Konva `dependency konva` see [konva](https://konvajs.org/api/Konva.html)
-- ReactKonva `dependency react-konva` see [react-konva](https://www.npmjs.com/package/react-konva)
-- ViserReact `dependency viser-react` see [viser-react](https://www.npmjs.com/package/viser-react)
 
 #### `common.css class:`
 
