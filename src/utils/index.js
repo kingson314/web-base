@@ -6,6 +6,7 @@ const d3 = require('d3')
 const $ = require("jquery")
 const _ = require("lodash")
 
+const Sortable = require('sortablejs')
 const Mock = require('mockjs')
 const Konva = require('konva')
 
@@ -28,6 +29,7 @@ const utils = {
   $,
   _,
 
+  Sortable,
   Mock,
   Konva,
 
