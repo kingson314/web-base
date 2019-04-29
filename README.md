@@ -242,8 +242,8 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - xlsx
     - read
     - write
-- moment `dependency moment` see [moment](http://momentjs.cn/docs/#/parsing)
-- numeral `dependency numeral` see [numeral](http://numeraljs.com)
+- moment `dependency moment` see [momentjs](http://momentjs.cn/docs/#/parsing)
+- numeral `dependency numeral` see [numeraljs](http://numeraljs.com)
 - math `dependency mathjs` see [mathjs](https://mathjs.org)
 - anime `dependency animejs` see [animejs](https://animejs.com/documentation)
 - interact `dependency interactjs` see [interactjs](https://interactjs.io)
@@ -253,6 +253,7 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - Mock `dependency mockjs` see [mockjs](http://mockjs.com/examples.html)
 - Sortable `dependency sortablejs` see [sortablejs](http://sortablejs.github.io/Sortable)
 - Two `dependency two.js` see [two.js](https://two.js.org)
+- Three `dependency threejs` see [threejs](https://threejs.org)
 
 #### `common.css class:`
 

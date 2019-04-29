@@ -2,8 +2,11 @@ const moment = require('moment')
 const numeral = require('numeral')
 const math = require('mathjs')
 const interact = require('interactjs')
+
 const anime = require('animejs/lib/anime.min.js')
 const Two = require('two.js/build/two.min.js')
+const Three = require('three/build/three.min.js')
+
 const d3 = require('d3')
 const $ = require("jquery")
 const _ = require("lodash")
@@ -34,6 +37,7 @@ const utils = {
   Sortable,
   Mock,
   Two,
+  Three,
 
   check: require('./check'),
 
