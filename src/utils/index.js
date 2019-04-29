@@ -2,6 +2,7 @@ const moment = require('moment')
 const numeral = require('numeral')
 const math = require('mathjs')
 const anime = require('animejs/lib/anime.js')
+const interact = require('interactjs')
 const d3 = require('d3')
 const $ = require("jquery")
 const _ = require("lodash")
@@ -25,6 +26,7 @@ const utils = {
   numeral,
   math,
   anime,
+  interact,
   d3,
   $,
   _,
