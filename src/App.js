@@ -3,64 +3,37 @@ import './styles/main.scss'
 
 import HelloWorld from "./comps/HelloWorld"
 
-import {interact} from "./utils"
+import {Two} from "./utils"
 
 class App extends Component {
 
   componentDidMount() {
-    interact('.draggable')
-      .draggable({
-        // enable inertial throwing
-        inertia: true,
-        // keep the element within the area of it's parent
-        modifiers: [
-          interact.modifiers.restrict({
-            restriction: "parent",
-            endOnly: true,
-            elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-          }),
-        ],
-        // enable autoScroll
-        autoScroll: true,
+    var elem = document.getElementById('draw-shapes');
+    var params = { width: 285, height: 200 };
+    var two = new Two(params).appendTo(elem);
 
-        // call this function on every dragmove event
-        onmove: dragMoveListener,
-        // call this function on every dragend event
-        onend: function (event) {
-          var textEl = event.target.querySelector('p');
+    var circle = two.makeCircle(72, 100, 50);
+    var rect = two.makeRectangle(213, 100, 100, 100);
 
-          textEl && (textEl.textContent =
-            'moved a distance of '
-            + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-            Math.pow(event.pageY - event.y0, 2) | 0))
-              .toFixed(2) + 'px');
-        }
-      });
+    circle.fill = '#FF8000';
+    circle.stroke = 'orangered'; // Accepts all valid css color
+    circle.linewidth = 5;
+
+    rect.fill = 'rgb(0, 200, 255)';
+    rect.opacity = 0.75;
+    rect.noStroke();
+
+    two.update();
   }
 
   render() {
     return (
       <div className='home-page'>
         <HelloWorld text='hello, world!'/>
-        <div className="draggable"></div>
+        <div id='draw-shapes'></div>
       </div>
     )
   }
-}
-function dragMoveListener (event) {
-  var target = event.target,
-    // keep the dragged position in the data-x/data-y attributes
-    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-  // translate the element
-  target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
-
-  // update the posiion attributes
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
 }
 
 export default App;

@@ -250,9 +250,9 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - d3 `dependency d3` see [d3](https://github.com/d3/d3/blob/master/API.md)
 - $ `dependency jquery` see [jquery](https://oscarotero.com/jquery)
 - \_ `dependency lodash` see [lodash](https://www.lodashjs.com)
-- Sortable `dependency sortablejs` see [sortablejs](http://sortablejs.github.io/Sortable)
 - Mock `dependency mockjs` see [mockjs](http://mockjs.com/examples.html)
-- Konva `dependency konva` see [konva](https://konvajs.org/api/Konva.html)
+- Sortable `dependency sortablejs` see [sortablejs](http://sortablejs.github.io/Sortable)
+- Two `dependency two.js` see [two.js](https://two.js.org)
 
 #### `common.css class:`
 

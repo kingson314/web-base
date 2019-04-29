@@ -1,15 +1,15 @@
 const moment = require('moment')
 const numeral = require('numeral')
 const math = require('mathjs')
-const anime = require('animejs/lib/anime.js')
 const interact = require('interactjs')
+const anime = require('animejs/lib/anime.min.js')
+const Two = require('two.js/build/two.min.js')
 const d3 = require('d3')
 const $ = require("jquery")
 const _ = require("lodash")
 
 const Sortable = require('sortablejs')
 const Mock = require('mockjs')
-const Konva = require('konva')
 
 // const react = {
 //   HelloWorld: require('../comps/HelloWorld'),
@@ -33,7 +33,7 @@ const utils = {
 
   Sortable,
   Mock,
-  Konva,
+  Two,
 
   check: require('./check'),
 
