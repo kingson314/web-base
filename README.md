@@ -61,7 +61,7 @@ import 'web-base/css/base.css'
 
 ## API
 
-For Utils Documentation, visit [document]()
+For Utils Documentation, visit [document](http://paddyzzz.coding.me/web-base-api)
 
 #### `utils`
 
