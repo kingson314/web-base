@@ -3,7 +3,7 @@ const assert = chai.assert
 const expect = chai.expect
 const should = chai.should()
 
-const utils = require('./index')
+const utils = require('./utils')
 
 describe('array', function () {
   describe('#remove', function () {

@@ -10,9 +10,9 @@ npm i web-base
 yarn add web-base
 ```
 
-#### `utils`
+#### `modules`
 ```
-import utils from 'web-base'
+import utils from 'web-base/utils'
 
 let arr = ['paddy','patrick','somebody']
 let num = 'string'
@@ -33,13 +33,13 @@ console.log(arrayUtil.remove(arr,'somebody'))
 console.log(checkUtil.isNumber(num))
 console.log(dateUtil.format(date,'YYYY-MM-DD hh:mm'))
 
-//other package
-import { numeral } from 'web-base'
+//dependency module
+import numeral from 'web-base/numeral'
 
 let num = numeral('1,000')
 console.log(num.value())  //1000
 
-import { _ } from 'web-base'
+import _ from 'web-base/lodash'
 _.chunk(['a', 'b', 'c', 'd'],2) //[['a', 'b'], ['c', 'd']]
 ```
 
@@ -61,9 +61,10 @@ import 'web-base/css/base.css'
 
 ## API
 
-For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
+For Utils Documentation, visit [document]()
 
-#### `utils:`
+#### `utils`
+
 - string
     - uuid `生成uuid`
     - randomCode `生成数字字符随机组合`
@@ -242,20 +243,23 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - xlsx
     - read
     - write
+    
+#### `dependency module`
+
 - moment `dependency moment` see [momentjs](http://momentjs.cn/docs/#/parsing)
 - numeral `dependency numeral` see [numeraljs](http://numeraljs.com)
 - math `dependency mathjs` see [mathjs](https://mathjs.org)
 - anime `dependency animejs` see [animejs](https://animejs.com/documentation)
 - interact `dependency interactjs` see [interactjs](https://interactjs.io)
+- jquery `dependency jquery` see [jquery](https://oscarotero.com/jquery)
+- lodash `dependency lodash` see [lodash](https://www.lodashjs.com)
 - d3 `dependency d3` see [d3](https://github.com/d3/d3/blob/master/API.md)
-- $ `dependency jquery` see [jquery](https://oscarotero.com/jquery)
-- \_ `dependency lodash` see [lodash](https://www.lodashjs.com)
 - Mock `dependency mockjs` see [mockjs](http://mockjs.com/examples.html)
 - Sortable `dependency sortablejs` see [sortablejs](http://sortablejs.github.io/Sortable)
 - Two `dependency two.js` see [two.js](https://two.js.org)
 - Three `dependency threejs` see [threejs](https://threejs.org)
 
-#### `common.css class:`
+#### `common.css class`
 
 - show `display: none;`
 - hide  `display: none;`
@@ -330,6 +334,322 @@ For Documentation, visit [document](http://120.79.106.31:8081/global.html#utils)
 - vertical
     - -center `display: inline-block;text-align: center;`
     - -inner-center `width: inherit;height: inherit;text-align: center;display: table-cell;vertical-align: middle;`
+
+#### `reset.css`
+
+```css
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+html,body{
+  font-family: "Microsoft YaHei", Arial;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main{
+  display: block;
+}
+pre{
+  font-family: monospace, monospace;
+  font-size: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+a {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-text-decoration-skip: objects;
+}
+i{
+  font-style: normal;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  transform: scaleY(0.15);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input, button, select, textarea {
+  outline: 0 none;
+  resize: none;
+}
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+}
+select::-ms-expand {
+  display: none; /*隐藏IE下拉箭头*/
+}
+ul,li{
+  list-style: none;
+}
+img {
+  border-style: none;
+  vertical-align: bottom; /*a标签包围时消除a标签多余4像素*/
+  width: 100%;
+  height: 100%;
+}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html [type="button"],
+
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details,
+menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+canvas {
+  display: inline-block;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* mobile */
+@media all and (max-width: 40em){
+  html,
+  body {
+    /* 禁止选中文本 */
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+
+  /* 禁止长按链接与图片弹出菜单 */
+  a,
+  img {
+    -webkit-touch-callout: none;
+  }
+
+  /*ios android去除自带阴影的样式*/
+  a,
+  input {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  input[type="text"] {
+    -webkit-appearance: none;
+  }
+}
+
+```
 
 `Note:` 
 - grid.css see [Foundation XY Grid](https://foundation.zurb.com/sites/docs/xy-grid.html)	

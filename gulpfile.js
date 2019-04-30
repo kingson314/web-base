@@ -37,7 +37,7 @@ const script = {
 }
 
 const scss = {
-  src: 'scss/**/*',
+  src: 'src/scss/**/*',
   dest: 'dist/css'
 }
 const css = {
