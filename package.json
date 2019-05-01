@@ -27,6 +27,7 @@
     "superagent": "^5.0.3",
     "three": "^0.104.0",
     "two.js": "^0.7.0-beta.3",
+    "web3": "^1.0.0-beta.53",
     "xlsx": "^0.14.2"
   },
   "devDependencies": {
@@ -75,6 +76,7 @@
     "numeral",
     "superagent",
     "xlsx",
+    "web3",
     "utility"
   ],
   "author": "paddyzzz<patricknieh@hotmail.com>",
