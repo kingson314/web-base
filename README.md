@@ -258,7 +258,7 @@ For Utils Documentation, visit [document](http://paddyzzz.coding.me/web-base-api
 - Sortable `dependency sortablejs` see [sortablejs](http://sortablejs.github.io/Sortable)
 - Two `dependency two.js` see [two.js](https://two.js.org)
 - Three `dependency threejs` see [threejs](https://threejs.org)
-- Web3 `dependency web3` see [web3](http://web3.tryblockchain.org)
+- Web3 `dependency web3` see [web3](https://web3js.readthedocs.io)
 
 #### `common.css class`
 
